@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>熊家日本慶生行 2025/12/14-12/19</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding-bottom: 80px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 16px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header .subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .tabs {
+            display: flex;
+            overflow-x: auto;
+            background: white;
+            border-bottom: 2px solid #e0e0e0;
+            position: sticky;
+            top: 80px;
+            z-index: 99;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab {
+            flex: 0 0 auto;
+            padding: 12px 20px;
+            background: white;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+            background: #f8f9ff;
+        }
+
+        .content {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px 16px;
+        }
+
+        .day-content {
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+
+        .day-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .day-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 18px;
+            background: #667eea;
+            margin-right: 8px;
+            border-radius: 2px;
+        }
+
+        .info-item {
+            margin-bottom: 12px;
+            padding-left: 12px;
+            border-left: 2px solid #e0e0e0;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-item strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .time-line {
+            background: #f8f9ff;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 8px 0;
+            border-left: 3px solid #667eea;
+        }
+
+        .time-line strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .budget {
+            color: #28a745;
+            font-weight: 500;
+        }
+
+        .route-card {
+            background: #f8f9ff;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 8px 0;
+            border: 1px solid #e0e0e0;
+        }
+
+        .route-card strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .route-toggle {
+            background: #e8f0fe;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-top: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            color: #667eea;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+        }
+
+        .route-toggle::after {
+            content: '▼';
+            font-size: 10px;
+            transition: transform 0.3s;
+        }
+
+        .route-toggle.collapsed::after {
+            transform: rotate(-90deg);
+        }
+
+        .route-details {
+            margin-top: 8px;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+            display: none;
+        }
+
+        .route-details.show {
+            display: block;
+        }
+
+        .route-details .route-card {
+            margin: 8px 0;
+            background: #fafafa;
+        }
+
+        @media (min-width: 768px) {
+            .content {
+                max-width: 800px;
+                padding: 24px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .day-title {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>熊家日本慶生行</h1>
+        <div class="subtitle">2025/12/14 - 12/19</div>
+    </div>
+
+    <div class="tabs" id="tabs">
+        <button class="tab active" data-day="overview">總覽</button>
+        <button class="tab" data-day="day1">12/14</button>
+        <button class="tab" data-day="day2">12/15</button>
+        <button class="tab" data-day="day3">12/16</button>
+        <button class="tab" data-day="day4">12/17</button>
+        <button class="tab" data-day="day5">12/18</button>
+        <button class="tab" data-day="day6">12/19</button>
+    </div>
+
+    <div class="content">
+        <!-- 總覽 -->
+        <div class="day-content active" id="overview">
+            <div class="section">
+                <div class="section-title">住宿資訊</div>
+                <div class="info-item">
+                    <strong>ESLEAD HOTEL Osaka Shinsaibashi（大阪心齋橋店）</strong>
+                    大阪心斎橋 〒542-0082 大阪府大阪市中央区島之内1丁目21-8<br>
+                    <strong>最近車站：</strong> 大阪地鐵堺筋線「長堀橋站」（6號出口，步行約2分鐘）<br>
+                    <a href="https://www.google.com/maps/search/ESLEAD+HOTEL+Osaka+Shinsaibashi" target="_blank">Google Maps</a>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">基本資訊</div>
+                <div class="info-item">
+                    <strong>旅伴：</strong> 3位大人 + 1位12歲小孩（等同成人票）
+                </div>
+                <div class="info-item">
+                    <strong>規劃原則：</strong> 以新住宿為中心「輻射式」動線；當日單點深玩、步行半徑內串景再回飯店；以電車為主，Uber僅備用
+                </div>
+                <div class="info-item">
+                    <strong>匯率換算：</strong> 1日圓 ≈ NT$ 0.2013
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">行程總覽</div>
+                <ul>
+                    <li><strong>12/14（日）</strong> 抵達日：KIX→難波（南海空港急行）→長堀橋站入住；辦 ICOCA；附近覓食</li>
+                    <li><strong>12/15（一）</strong> 大阪市區：黑門市場→大阪城→梅田→鰻串晚餐</li>
+                    <li><strong>12/16（二）</strong> 大阪市區：木津市場→難波八阪神社→通天閣→HARUKAS觀景台→四天王寺→PARCO→晚餐</li>
+                    <li><strong>12/17（三）</strong> USJ 無快通（07:00到入口排隊）</li>
+                    <li><strong>12/18（四）</strong> 京都一日：和服租借・伏見稻荷・清水寺/二年坂/三年坂・祇園/花見小路/鴨川/八坂神社</li>
+                    <li><strong>12/19（五）</strong> 心齋橋/難波採買→晚間出發 KIX</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 12/14 -->
+        <div class="day-content" id="day1">
+            <div class="day-title">12/14（日）抵達日</div>
+
+            <div class="section">
+                <div class="section-title">交通詳細指引</div>
+                    <div class="route-card">
+                        <strong>移動 1：KIX 關西機場 → 難波站（南海空港急行）</strong>
+                    <strong>起點：</strong> <strong><u>關西國際機場站（関西国際空港駅，かんさいこくさいくうこうえき / KIX Terminal 1，2樓）</u></strong><br>
+                    • 位置：通過連接橋即可到達南海電鐵車站<br>
+                    • 月台：<strong><u>空港急行列車月台（通常為 3-4 號月台，請依現場標示為準）</u></strong><br>
+                    • 方向：往難波方向（空港急行，くうこうきゅうこう）<br>
+                    <strong>終點：</strong> <strong><u>南海難波站（南海なんば駅，なんかいなんばえき）</u></strong><br>
+                    • 車程時間：約 45 分鐘（直達）<br>
+                    • 票價：成人 ￥920 (NT$ 185)（基本車資，不需特急券）<br>
+                    • 班次：約每 15–20 分鐘一班（05:45–23:40）<br>
+                    <strong>注意事項：</strong><br>
+                    • 空港急行為自由席，可直接使用 ICOCA 刷卡進站，無需提前購票<br>
+                    • 可在機場 2 樓的南海電鐵售票處購買車票，或直接使用 ICOCA<br>
+                    • 空港急行比 Rapi:t 特急便宜，但車程較長（約多 11 分鐘）<br>
+                    • 建議預留充足時間，考慮車程較長的因素<br>
+                    <a href="https://www.google.com/maps/dir/関西国際空港駅/南海なんば駅" target="_blank">Google Maps 路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 2：南海難波站 → 大阪地鐵難波站（步行轉乘）</strong>
+                    <strong>起點：</strong> <strong><u>南海難波站（南海なんば駅，なんかいなんばえき）</u></strong><br>
+                    <strong>終點：</strong> <strong><u>大阪地鐵難波站（大阪メトロなんば駅，おおさかめとろなんばえき）</u></strong><br>
+                    • 步行路線：從<strong><u>南海難波站</u></strong>下車後，按照車站內指示標誌前往<strong><u>大阪地鐵難波站</u></strong><br>
+                    • 步行時間：約 6 分鐘<br>
+                    <strong>地標指引：</strong><br>
+                    1. 從<strong><u>南海難波站</u></strong>下車後，尋找「大阪地鐵」或「Osaka Metro」指示標誌<br>
+                    2. 沿著指示牌前進，可能需要上樓或下樓<br>
+                    3. 到達<strong><u>大阪地鐵難波站</u></strong><br>
+                    <a href="https://www.google.com/maps/dir/南海なんば駅/大阪メトロなんば駅" target="_blank">Google Maps 步行路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 3：大阪地鐵難波站 → 長堀橋站（堺筋線）</strong>
+                    <strong>起點：</strong> <strong><u>大阪地鐵難波站（大阪メトロなんば駅，おおさかめとろなんばえき）</u></strong><br>
+                    • 需換乘至堺筋線（さかいすじせん / Sakaisuji Line）月台<br>
+                    • 換乘指示：按照站內「堺筋線」指示牌前進（可能需要上樓或下樓）<br>
+                    • 月台：通常為 <strong><u>往天下茶屋方向（てんがちゃや）</u></strong><br>
+                    • 方向：往天下茶屋方向（終點站：天下茶屋駅，てんがちゃやえき）<br>
+                    <strong>終點：</strong> <strong><u>長堀橋站（長堀橋駅，ながほりばしえき / 堺筋線）</u></strong><br>
+                    • 車程時間：約 2 分鐘（僅 1 站）<br>
+                    • 票價：成人 ￥190 (NT$ 38)<br>
+                    <strong>出口指引：</strong><br>
+                    • 從<strong><u>長堀橋站</u></strong> 6 號出口出站後，步行至 ESLEAD HOTEL Osaka Shinsaibashi（約 2 分鐘）<br>
+                    • 建議使用 Google Maps 導航至飯店地址<br>
+                    <a href="https://www.google.com/maps/dir/大阪メトロなんば駅/長堀橋駅" target="_blank">Google Maps 路線連結</a>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">ICOCA 辦理</div>
+                <div class="info-item">
+                    可在關西機場2樓的JR或南海電鐵售票處購買ICOCA<br>
+                    建議購買金額：￥3,000–￥5,000（含押金￥500）<br>
+                    <a href="https://wind.suzukihiro.tw/icoca/" target="_blank">ICOCA 機場購票路線</a>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">時間軸</div>
+
+                <div class="time-line">
+                    <strong>15:00–16:00</strong> 抵達飯店、Check-in、整理行李
+                </div>
+
+                <div class="time-line">
+                    <strong>17:00–18:30</strong> 晚餐<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看餐廳推薦與交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>推薦餐廳選項：</strong><br><br>
+                            <strong>選項 A：一蘭拉麵（一蘭，いちらん）心齋橋店</strong><br>
+                            • 地址：大阪府大阪市中央区心斎橋筋1-3-29（1 Chome-3-29 Shinsaibashisuji, Chuo Ward, Osaka）<br>
+                            • 推薦餐點：<br>
+                            &nbsp;&nbsp;- 天然とんこつラーメン（天然豚骨拉麵，てんねんとんこつらーめん）<br>
+                            &nbsp;&nbsp;- 替玉（加麵，かえだま）<br>
+                            &nbsp;&nbsp;- 半熟たまご（半熟蛋，はんじゅくたまご）<br>
+                            • 預算：每人 <span class="budget">￥890–￥1,290 (NT$ 179–260)</span><br>
+                            • 營業時間：通常 10:00–22:00（週日可能至 21:00）<br>
+                            • 特色：個人座位、可自選湯頭濃淡、麵條軟硬等<br>
+                            <a href="https://www.google.com/maps/search/一蘭+心齋橋" target="_blank">Google Maps 餐廳位置</a><br><br>
+                            <strong>選項 B：やよい軒（Yayoiken，やよいけん）難波店</strong><br>
+                            • 地址：大阪府大阪市中央区難波3-3-1（3 Chome-3-1 Namba, Chuo Ward, Osaka）<br>
+                            • 推薦餐點：<br>
+                            &nbsp;&nbsp;- から揚げ定食（炸雞定食，からあげていしょく）<br>
+                            &nbsp;&nbsp;- とんかつ定食（豬排定食，とんかつていしょく）<br>
+                            &nbsp;&nbsp;- 焼き魚定食（烤魚定食，やきざかなていしょく）<br>
+                            • 預算：每人 <span class="budget">￥700–￥1,200 (NT$ 141–242)</span><br>
+                            • 營業時間：通常 11:00–23:00<br>
+                            • 特色：平價日式定食、白飯味噌湯可續<br>
+                            <a href="https://www.google.com/maps/search/やよい軒+難波" target="_blank">Google Maps 餐廳位置</a><br><br>
+                            <strong>選項 C：天丼てんや（Tendon Tenya，てんどんてんや）心齋橋店</strong><br>
+                            • 地址：大阪府大阪市中央区心斎橋筋2-2-23（2 Chome-2-23 Shinsaibashisuji, Chuo Ward, Osaka）<br>
+                            • 推薦餐點：<br>
+                            &nbsp;&nbsp;- 天丼（天婦羅蓋飯，てんどん）<br>
+                            &nbsp;&nbsp;- えび天丼（炸蝦天婦羅蓋飯，えびてんどん）<br>
+                            &nbsp;&nbsp;- 天重（天婦羅定食，てんじゅう）<br>
+                            • 預算：每人 <span class="budget">￥650–￥1,100 (NT$ 131–221)</span><br>
+                            • 營業時間：通常 11:00–22:00<br>
+                            • 特色：平價天婦羅專門店、快速上菜<br>
+                            <a href="https://www.google.com/maps/search/天丼てんや+心齋橋" target="_blank">Google Maps 餐廳位置</a>
+                        </div>
+                        <div class="route-card">
+                            <strong>移動：ESLEAD HOTEL Osaka Shinsaibashi → 心齋橋/難波（晚餐）</strong><br>
+                            <strong>起點：</strong> ESLEAD HOTEL Osaka Shinsaibashi（<strong><u>長堀橋站</u></strong> 6 號出口，步行約 2 分鐘）<br>
+                            <strong>終點：</strong> 心齋橋筋商店街（心齋橋筋商店街，しんさいばしすじしょうてんがい）或難波（なんば）<br>
+                            <strong>選項 A（步行）：</strong> 從飯店步行至心齋橋筋商店街（約 8–12 分鐘）<br>
+                            • 路線：從飯店往北步行，經過<strong><u>長堀橋站</u></strong>，繼續往北至心齋橋筋商店街<br>
+                            <strong>選項 B（地鐵）：</strong> <strong><u>長堀橋站（長堀橋駅，ながほりばしえき / 堺筋線）</u></strong>→ <strong><u>難波站（なんばえき）</u></strong>，再步行至餐廳<br>
+                            • 車程時間：約 2 分鐘（僅 1 站）<br>
+                            • 票價：成人 ￥190 (NT$ 38)<br>
+                            • 從難波站步行至心齋橋筋商店街：約 5–8 分鐘<br>
+                            <strong>地標指引：</strong> 心齋橋筋商店街是南北向的商店街，一蘭拉麵、天丼てんや都在此區域；やよい軒在難波站附近<br>
+                            <a href="https://www.google.com/maps/dir/ESLEAD+HOTEL+Osaka+Shinsaibashi/心齋橋筋商店街" target="_blank">Google Maps 步行路線連結</a> | <a href="https://www.google.com/maps/dir/長堀橋駅/なんば駅" target="_blank">地鐵路線連結</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>18:30–19:30</strong> UNIQLO、GU 等購物<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看店鋪位置與交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>推薦購物店鋪：</strong><br><br>
+                            <strong>UNIQLO（ユニクロ）心齋橋店</strong><br>
+                            • 地址：大阪府大阪市中央区心斎橋筋1-2-17（1 Chome-2-17 Shinsaibashisuji, Chuo Ward, Osaka）<br>
+                            • 營業時間：通常 10:00–21:00<br>
+                            • 特色：大型店鋪、商品齊全、免稅服務<br>
+                            • 推薦商品：發熱衣、羽絨外套、內衣、襪子等<br>
+                            <a href="https://www.google.com/maps/search/UNIQLO+心齋橋" target="_blank">Google Maps 店鋪位置</a><br><br>
+                            <strong>GU（ジーユー）心齋橋店</strong><br>
+                            • 地址：大阪府大阪市中央区心斎橋筋1-3-21（1 Chome-3-21 Shinsaibashisuji, Chuo Ward, Osaka）<br>
+                            • 營業時間：通常 10:00–21:00<br>
+                            • 特色：UNIQLO 姊妹品牌、價格更親民、時尚單品<br>
+                            • 推薦商品：基本款T恤、牛仔褲、家居服等<br>
+                            <a href="https://www.google.com/maps/search/GU+心齋橋" target="_blank">Google Maps 店鋪位置</a><br><br>
+                            <strong>其他推薦店鋪：</strong><br>
+                            • <strong>無印良品（MUJI，むじるしりょうひん）</strong>心齋橋店：生活雜貨、服飾<br>
+                            • <strong>ABC-MART（エービーシーマート）</strong>：運動鞋、休閒鞋<br>
+                            • <strong>藥妝店（松本清、大國藥妝等）</strong>：藥品、化妝品、零食<br>
+                            <a href="https://www.google.com/maps/search/心齋橋+ショッピング" target="_blank">Google Maps 心齋橋購物區域</a>
+                        </div>
+                        <div class="route-card">
+                            <strong>移動：晚餐地點 → UNIQLO/GU 心齋橋店（步行）</strong><br>
+                            <strong>起點：</strong> 心齋橋筋商店街或難波（晚餐地點）<br>
+                            <strong>終點：</strong> UNIQLO/GU 心齋橋店（心齋橋筋商店街內）<br>
+                            • 步行路線：UNIQLO 和 GU 都在心齋橋筋商店街內，從餐廳步行即可到達<br>
+                            • 步行時間：約 2–5 分鐘（視餐廳位置而定）<br>
+                            <strong>地標指引：</strong><br>
+                            • UNIQLO 心齋橋店位於心齋橋筋商店街南端（靠近難波方向）<br>
+                            • GU 心齋橋店位於心齋橋筋商店街中段，與 UNIQLO 相距不遠<br>
+                            • 兩店都在商店街主幹道上，容易找到<br>
+                            <a href="https://www.google.com/maps/dir/心齋橋筋商店街/UNIQLO+心齋橋" target="_blank">Google Maps 步行路線連結</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>19:30–20:00</strong> 返回飯店<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動：心齋橋 → 長堀橋站（回程）</strong><br>
+                            <strong>起點：</strong> 心齋橋筋商店街（心齋橋筋商店街，しんさいばしすじしょうてんがい）<br>
+                            <strong>終點：</strong> ESLEAD HOTEL Osaka Shinsaibashi（<strong><u>長堀橋站</u></strong> 6 號出口，步行約 2 分鐘）<br>
+                            <strong>選項 A（步行）：</strong> 從心齋橋筋商店街步行回飯店（約 10–15 分鐘）<br>
+                            • 路線：從心齋橋筋商店街往南步行，經過<strong><u>長堀橋站</u></strong>，繼續往南至飯店<br>
+                            <strong>選項 B（地鐵）：</strong> <strong><u>難波站（なんばえき / 堺筋線，さかいすじせん）</u></strong>→ <strong><u>長堀橋站（長堀橋駅，ながほりばしえき）</u></strong><br>
+                            • 車程時間：約 2 分鐘（僅 1 站）<br>
+                            • 票價：成人 ￥190 (NT$ 38)<br>
+                            • 從心齋橋步行至難波站：約 5–8 分鐘<br>
+                            <strong>出口指引：</strong> 從<strong><u>長堀橋站</u></strong> 6 號出口出站，步行約 2 分鐘至 ESLEAD HOTEL Osaka Shinsaibashi<br>
+                            <strong>注意事項：</strong> 建議 19:30 前開始回程，確保 20:00 前抵達飯店<br>
+                            <a href="https://www.google.com/maps/dir/心齋橋筋商店街/長堀橋駅" target="_blank">Google Maps 步行路線連結</a> | <a href="https://www.google.com/maps/dir/なんば駅/長堀橋駅" target="_blank">地鐵路線連結</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 12/15 -->
+        <div class="day-content" id="day2">
+            <div class="day-title">12/15（一）大阪市區</div>
+
+            <div class="section">
+                <div class="section-title">交通總覽</div>
+                <div class="info-item">
+                    <strong>三位大人：</strong> 使用2日大阪周遊卡（每人 NT$ 1,000），可無限次搭乘大阪 Metro、巴士等指定交通工具<br>
+                    <strong>12歲小孩：</strong> 使用ICOCA，單趟票價多落在 ￥230–￥290 (NT$ 46–58)<br>
+                    今日合計預估：大人（周遊卡已含，無額外費用）；小孩 ￥700–￥900 (NT$ 141–181)
+                </div>
+            </div>
+
+            <div class="section" style="display: none;">
+                <div class="section-title">交通詳細指引（完整版）</div>
+                <div class="route-toggle collapsed" onclick="toggleRoute(this)">
+                    展開完整交通指引
+                </div>
+                <div class="route-details">
+                    <div class="route-card">
+                        <strong>移動 1：ESLEAD HOTEL Osaka Shinsaibashi → 黑門市場（步行或地鐵）</strong>
+                        <strong>起點：</strong> ESLEAD HOTEL Osaka Shinsaibashi（<strong><u>長堀橋站</u></strong> 6 號出口，步行約 2 分鐘）<br>
+                    <strong>終點：</strong> 黑門市場（黒門市場，くろもんいちば）<br>
+                    <strong>選項 A（步行）：</strong> 從飯店步行至黑門市場（約 15–18 分鐘）<br>
+                    <strong>選項 B（地鐵）：</strong> <strong><u>長堀橋站（長堀橋駅，ながほりばしえき / 堺筋線）</u></strong>→ <strong><u>日本橋站（日本橋駅，にっぽんばしえき / 換乘千日前線）</u></strong>→ <strong><u>日本橋站（千日前線）</u></strong>→ 黑門市場步行<br>
+                    • 車程時間：約 3–4 分鐘（含換乘）<br>
+                    • 票價：成人 ￥190 (NT$ 38)<br>
+                    <strong>地標指引：</strong> 使用 Google Maps 導航至「黑門市場」<br>
+                    <a href="https://www.google.com/maps/dir/ESLEAD+HOTEL+Osaka+Shinsaibashi/黒門市場" target="_blank">Google Maps 步行路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 2：黑門市場 → 谷町九丁目站（換乘）</strong>
+                    <strong>步行：</strong> 從黑門市場（黒門市場，くろもんいちば）走回<strong><u>日本橋站</u></strong>（約 5–10 分鐘）<br>
+                    <strong>起點：</strong> <strong><u>日本橋站（日本橋駅，にっぽんばしえき / 千日前線，せんにちまえせん）</u></strong><br>
+                    • 月台：通常為 <strong><u>1 號月台（往南巽方向，みなみたつみ）</u></strong><br>
+                    • 方向：往南巽方向（終點站：南巽駅，みなみたつみえき）<br>
+                    <strong>終點：</strong> <strong><u>谷町九丁目站（谷町九丁目駅，たにまちきゅうちょうめえき                    ）</u></strong><br>
+                    • 車程時間：約 1 分鐘（僅 1 站）<br>
+                    • 票價：成人 ￥190 (NT$ 38)<br>
+                    <a href="https://www.google.com/maps/dir/日本橋駅/谷町九丁目駅" target="_blank">Google Maps 路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 3：谷町九丁目站 → 谷町四丁目站（換乘谷町線）</strong>
+                    <strong>換乘指示：</strong><br>
+                    1. 從千日前線月台下車<br>
+                    2. 按照站內「谷町線（たにまちせん）」指示牌前進（可能需要上樓或下樓）<br>
+                    3. 到達谷町線月台<br>
+                    <strong>起點：</strong> <strong><u>谷町九丁目站（谷町九丁目駅，たにまちきゅうちょうめえき / 谷町線，たにまちせん）</u></strong><br>
+                    • 月台：通常為 <strong><u>1 號月台（往大日方向，だいにち）</u></strong><br>
+                    • 方向：往大日方向（終點站：大日駅，だいにちえき）<br>
+                    <strong>終點：</strong> <strong><u>谷町四丁目站（谷町四丁目駅，たにまちよんちょうめえき                    ）</u></strong><br>
+                    • 車程時間：約 3 分鐘（經過<strong><u>谷町六丁目站</u></strong>，たにまちろくちょうめえき）<br>
+                    • 票價：成人 ￥190 (NT$ 38)<br>
+                    • 總車程時間：約 5 分鐘（含換乘）<br>
+                    <a href="https://www.google.com/maps/dir/谷町九丁目駅/谷町四丁目駅" target="_blank">Google Maps 路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 4：谷町四丁目站 → 大阪城公園（步行）</strong>
+                    <strong>起點：</strong> <strong><u>谷町四丁目站（谷町四丁目駅，たにまちよんちょうめえき）</u></strong><br>
+                    <strong>終點：</strong> 大阪城公園（大阪城公園，おおさかじょうこうえん）<br>
+                    • 出口：從<strong><u>谷町四丁目站</u></strong> 1 號出口出站<br>
+                    • 步行路線：從 1 號出口步行至大阪城公園<br>
+                    • 步行時間：約 10–15 分鐘<br>
+                    <strong>地標指引：</strong> 出站後，朝著大阪城天守閣（大阪城天守閣，おおさかじょうてんしゅかく）方向前進<br>
+                    <a href="https://www.google.com/maps/dir/谷町四丁目駅/大阪城公園" target="_blank">Google Maps 步行路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 5：谷町四丁目站 → 東梅田站（谷町線）</strong>
+                    <strong>起點：</strong> <strong><u>谷町四丁目站（谷町四丁目駅，たにまちよんちょうめえき / 谷町線，たにまちせん）</u></strong><br>
+                    • 月台：通常為 <strong><u>1 號月台（往大日方向，だいにち）</u></strong><br>
+                    • 方向：往大日方向（繼續往北）<br>
+                    <strong>終點：</strong> <strong><u>東梅田站（東梅田駅，ひがしうめだえき                    ）</u></strong><br>
+                    • 車程時間：約 8–10 分鐘（經過多站）<br>
+                    • 票價：成人 ￥230 (NT$ 46)<br>
+                    <strong>出口指引：</strong><br>
+                    • 從<strong><u>東梅田站</u></strong>出站後，可步行至阪神百貨（阪神百貨店，はんしんひゃっかてん）、阪急百貨（阪急百貨店，はんきゅうひゃっかてん）、LUCUA 1100（ルクア 1100）<br>
+                    • 梅田站群較複雜，建議使用站內指標或 Google Maps<br>
+                    <a href="https://www.google.com/maps/dir/谷町四丁目駅/東梅田駅" target="_blank">Google Maps 路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 6：東梅田站 → 長堀橋站（回程）</strong>
+                    <strong>建議路線：</strong> <strong><u>東梅田站（東梅田駅，ひがしうめだえき / 谷町線，たにまちせん）</u></strong>→ <strong><u>谷町九丁目站（換乘千日前線）</u></strong>→ <strong><u>日本橋站（換乘堺筋線）</u></strong>→ <strong><u>長堀橋站（長堀橋駅，ながほりばしえき）</u></strong><br>
+                    <strong>換乘指示：</strong><br>
+                    1. 在<strong><u>谷町九丁目站</u></strong>下車，按照「千日前線（せんにちまえせん）」指示牌換乘<br>
+                    2. 搭乘千日前線（往南巽方向，みなみたつみ）至日本橋站<br>
+                    3. 在<strong><u>日本橋站</u></strong>換乘堺筋線（往天下茶屋方向，てんがちゃや）至<strong><u>長堀橋站</u></strong><br>
+                    • 車程時間：約 12–15 分鐘（含換乘）<br>
+                    • 票價：成人 ￥230 (NT$ 46)<br>
+                    <strong>備選路線：</strong> <strong><u>梅田站（梅田駅，うめだえき / 御堂筋線，みどうすじせん）</u></strong>→ <strong><u>難波站（なんばえき / 換乘堺筋線）</u></strong>→ <strong><u>長堀橋站</u></strong><br>
+                    • 此路線較長，但換乘較簡單（如不熟悉換乘可選此路線）<br>
+                    <strong>出口指引：</strong> 從<strong><u>長堀橋站</u></strong> 6 號出口出站，步行約 2 分鐘至 ESLEAD HOTEL Osaka Shinsaibashi<br>
+                    <a href="https://www.google.com/maps/dir/東梅田駅/長堀橋駅" target="_blank">Google Maps 路線連結</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">時間軸</div>
+
+                <div class="time-line">
+                    <strong>09:30</strong> 飯店出發步行 → 10:00 抵黑門市場<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動 1：ESLEAD HOTEL Osaka Shinsaibashi → 黑門市場（步行或地鐵）</strong>
+                            <strong>起點：</strong> ESLEAD HOTEL Osaka Shinsaibashi（<strong><u>長堀橋站</u></strong> 6 號出口，步行約 2 分鐘）<br>
+                            <strong>終點：</strong> 黑門市場（黒門市場，くろもんいちば）<br>
+                            <strong>選項 A（步行）：</strong> 從飯店步行至黑門市場（約 15–18 分鐘）<br>
+                            <strong>選項 B（地鐵）：</strong> <strong><u>長堀橋站（長堀橋駅，ながほりばしえき / 堺筋線）</u></strong>→ <strong><u>日本橋站（日本橋駅，にっぽんばしえき / 換乘千日前線）</u></strong>→ <strong><u>日本橋站（千日前線）</u></strong>→ 黑門市場步行<br>
+                            • 車程時間：約 3–4 分鐘（含換乘）<br>
+                            • 票價：成人 ￥190 (NT$ 38)<br>
+                            <a href="https://www.google.com/maps/dir/ESLEAD+HOTEL+Osaka+Shinsaibashi/黒門市場" target="_blank">Google Maps 步行路線連結</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>10:00–11:20</strong> 黑門市場小吃巡禮（輕食為主）<br>
+                    • 石橋商店：炸蝦拼盤（分享）<br>
+                    • 鮪魚專賣「黑門三平」：生魚片/丼<br>
+                    • 章魚燒 山ちゃん：章魚燒<br>
+                    預算（每人）：<span class="budget">￥1,200–￥2,500 (NT$ 242–504)</span>
+                </div>
+
+                <div class="time-line">
+                    <strong>11:20–11:40</strong> 走回日本橋站 → 地鐵移動至大阪城<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動 2：黑門市場 → 谷町九丁目站（換乘）</strong>
+                            <strong>步行：</strong> 從黑門市場（黒門市場，くろもんいちば）走回<strong><u>日本橋站</u></strong>（約 5–10 分鐘）<br>
+                            <strong>起點：</strong> <strong><u>日本橋站（日本橋駅，にっぽんばしえき / 千日前線，せんにちまえせん）</u></strong><br>
+                            • 月台：通常為 <strong><u>1 號月台（往南巽方向，みなみたつみ）</u></strong><br>
+                            • 方向：往南巽方向（終點站：南巽駅，みなみたつみえき）<br>
+                            <strong>終點：</strong> <strong><u>谷町九丁目站（谷町九丁目駅，たにまちきゅうちょうめえき）</u></strong><br>
+                            • 車程時間：約 1 分鐘（僅 1 站）<br>
+                            • 票價：成人 ￥190 (NT$ 38)<br>
+                            <a href="https://www.google.com/maps/dir/日本橋駅/谷町九丁目駅" target="_blank">Google Maps 路線連結</a>
+                        </div>
+                        <div class="route-card">
+                            <strong>移動 3：谷町九丁目站 → 谷町四丁目站（換乘谷町線）</strong>
+                            <strong>換乘指示：</strong><br>
+                            1. 從千日前線月台下車<br>
+                            2. 按照站內「谷町線（たにまちせん）」指示牌前進（可能需要上樓或下樓）<br>
+                            3. 到達谷町線月台<br>
+                            <strong>起點：</strong> <strong><u>谷町九丁目站（谷町九丁目駅，たにまちきゅうちょうめえき / 谷町線，たにまちせん）</u></strong><br>
+                            • 月台：通常為 <strong><u>1 號月台（往大日方向，だいにち）</u></strong><br>
+                            • 方向：往大日方向（終點站：大日駅，だいにちえき）<br>
+                            <strong>終點：</strong> <strong><u>谷町四丁目站（谷町四丁目駅，たにまちよんちょうめえき）</u></strong><br>
+                            • 車程時間：約 3 分鐘（經過<strong><u>谷町六丁目站</u></strong>，たにまちろくちょうめえき）<br>
+                            • 票價：成人 ￥190 (NT$ 38)<br>
+                            • 總車程時間：約 5 分鐘（含換乘）<br>
+                            <a href="https://www.google.com/maps/dir/谷町九丁目駅/谷町四丁目駅" target="_blank">Google Maps 路線連結</a>
+                        </div>
+                        <div class="route-card">
+                            <strong>移動 4：谷町四丁目站 → 大阪城公園（步行）</strong>
+                            <strong>起點：</strong> <strong><u>谷町四丁目站（谷町四丁目駅，たにまちよんちょうめえき）</u></strong><br>
+                            <strong>終點：</strong> 大阪城公園（大阪城公園，おおさかじょうこうえん）<br>
+                            • 出口：從<strong><u>谷町四丁目站</u></strong> 1 號出口出站<br>
+                            • 步行路線：從 1 號出口步行至大阪城公園<br>
+                            • 步行時間：約 10–15 分鐘<br>
+                            <strong>地標指引：</strong> 出站後，朝著大阪城天守閣（大阪城天守閣，おおさかじょうてんしゅかく）方向前進<br>
+                            <a href="https://www.google.com/maps/dir/谷町四丁目駅/大阪城公園" target="_blank">Google Maps 步行路線連結</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>12:00–13:30</strong> 大阪城（外園＋天守閣，可視排隊調整）<br>
+                    天守閣門票（成人）：<span class="budget">￥600 (NT$ 121)</span><br>
+                    若天守閣排隊 >30分，改外園散步＋護城河拍照
+                </div>
+
+                <div class="time-line">
+                    <strong>13:30–14:00</strong> 地鐵移動至梅田<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動 5：谷町四丁目站 → 東梅田站（谷町線）</strong>
+                            <strong>起點：</strong> <strong><u>谷町四丁目站（谷町四丁目駅，たにまちよんちょうめえき / 谷町線，たにまちせん）</u></strong><br>
+                            • 月台：通常為 <strong><u>1 號月台（往大日方向，だいにち）</u></strong><br>
+                            • 方向：往大日方向（繼續往北）<br>
+                            <strong>終點：</strong> <strong><u>東梅田站（東梅田駅，ひがしうめだえき）</u></strong><br>
+                            • 車程時間：約 8–10 分鐘（經過多站）<br>
+                            • 票價：成人 ￥230 (NT$ 46)<br>
+                            <strong>出口指引：</strong><br>
+                            • 從<strong><u>東梅田站</u></strong>出站後，可步行至阪神百貨（阪神百貨店，はんしんひゃっかてん）、阪急百貨（阪急百貨店，はんきゅうひゃっかてん）、LUCUA 1100（ルクア 1100）<br>
+                            • 梅田站群較複雜，建議使用站內指標或 Google Maps<br>
+                            <a href="https://www.google.com/maps/dir/谷町四丁目駅/東梅田駅" target="_blank">Google Maps 路線連結</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>14:00–17:15</strong> 梅田購物動線<br>
+                    • 阪神百貨（食品/伴手禮/地下街）45–60分<br>
+                    • 阪急百貨（美妝/服飾/人氣甜點）45–60分<br>
+                    • LUCUA 1100（選物/潮流品牌）45–60分<br>
+                    • HEP FIVE購物中心 30–45分
+                </div>
+
+                <div class="time-line">
+                    <strong>17:30–18:20</strong> 晚餐｜Unagi Kushiyaki Izumo（鰻串）<br>
+                    預算（每人）：<span class="budget">￥2,500–￥3,500 (NT$ 503–705)</span>
+                </div>
+
+                <div class="time-line">
+                    <strong>18:25–19:00</strong> 回程 → 長堀橋站<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動 6：東梅田站 → 長堀橋站（回程）</strong>
+                            <strong>建議路線：</strong> <strong><u>東梅田站（東梅田駅，ひがしうめだえき / 谷町線，たにまちせん）</u></strong>→ <strong><u>谷町九丁目站（換乘千日前線）</u></strong>→ <strong><u>日本橋站（換乘堺筋線）</u></strong>→ <strong><u>長堀橋站（長堀橋駅，ながほりばしえき）</u></strong><br>
+                            <strong>換乘指示：</strong><br>
+                            1. 在<strong><u>谷町九丁目站</u></strong>下車，按照「千日前線（せんにちまえせん）」指示牌換乘<br>
+                            2. 搭乘千日前線（往南巽方向，みなみたつみ）至日本橋站<br>
+                            3. 在<strong><u>日本橋站</u></strong>換乘堺筋線（往天下茶屋方向，てんがちゃや）至<strong><u>長堀橋站</u></strong><br>
+                            • 車程時間：約 12–15 分鐘（含換乘）<br>
+                            • 票價：成人 ￥230 (NT$ 46)<br>
+                            <strong>備選路線：</strong> <strong><u>梅田站（梅田駅，うめだえき / 御堂筋線，みどうすじせん）</u></strong>→ <strong><u>難波站（なんばえき / 換乘堺筋線）</u></strong>→ <strong><u>長堀橋站</u></strong><br>
+                            • 此路線較長，但換乘較簡單（如不熟悉換乘可選此路線）<br>
+                            <strong>出口指引：</strong> 從<strong><u>長堀橋站</u></strong> 6 號出口出站，步行約 2 分鐘至 ESLEAD HOTEL Osaka Shinsaibashi<br>
+                            <a href="https://www.google.com/maps/dir/東梅田駅/長堀橋駅" target="_blank">Google Maps 路線連結</a>
+                        </div>
+                    </div>
+                    <strong>19:00–20:00</strong> 飯店整理/休息（達成「20:00前回到飯店」目標）
+                </div>
+            </div>
+        </div>
+
+        <!-- 12/16 -->
+        <div class="day-content" id="day3">
+            <div class="day-title">12/16（二）大阪市區</div>
+
+            <div class="section">
+                <div class="section-title">交通</div>
+                <div class="info-item">
+                    <strong>三位大人：</strong> 繼續使用2日大阪周遊卡（第2天），可無限次搭乘大阪 Metro、巴士等指定交通工具<br>
+                    <strong>12歲小孩：</strong> 使用ICOCA，多以大阪 Metro＋JR 串接：長堀橋<->日本橋<->大國町/今宮戎/恵美須町/天王寺/心齋橋/難波（單段多為 ￥230–￥290）<br>
+                    動線盡量連貫，步行區段控制在 10–15 分內
+                </div>
+            </div>
+
+            <div class="section" style="display: none;">
+                <div class="section-title">交通詳細指引（完整版）</div>
+                <div class="route-toggle collapsed" onclick="toggleRoute(this)">
+                    展開完整交通指引
+                </div>
+                <div class="route-details">
+                    <div class="route-card">
+                        <strong>移動 1：ESLEAD HOTEL Osaka Shinsaibashi → 木津市場（步行或地鐵）</strong>
+                        <strong>起點：</strong> ESLEAD HOTEL Osaka Shinsaibashi（<strong><u>長堀橋站</u></strong> 6 號出口，步行約 2 分鐘）<br>
+                    <strong>終點：</strong> 木津市場（木津市場，きづいちば）<br>
+                    <strong>選項 A（步行）：</strong> 從飯店步行至木津市場（約 12–15 分鐘）<br>
+                    <strong>選項 B（地鐵）：</strong> <strong><u>長堀橋站（長堀橋駅，ながほりばしえき / 堺筋線）</u></strong>→ <strong><u>日本橋站（日本橋駅，にっぽんばしえき / 換乘千日前線）</u></strong>→ <strong><u>大國町站（大國町駅，だいこくまちえき）</u></strong>或<strong><u>今宮戎站（今宮戎駅，いまみやえびすえき）</u></strong>，再步行至木津市場<br>
+                    • 車程時間：約 4–5 分鐘（含換乘）<br>
+                    • 票價：成人 ￥190 (NT$ 38)<br>
+                    <a href="https://www.google.com/maps/dir/ESLEAD+HOTEL+Osaka+Shinsaibashi/木津市場" target="_blank">Google Maps 路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 2：木津市場 → 難波八阪神社（步行或地鐵）</strong>
+                    <strong>起點：</strong> 木津市場（木津市場，きづいちば）<br>
+                    <strong>終點：</strong> 難波八阪神社（難波八阪神社，なんばやさかじんじゃ）<br>
+                    <strong>選項 A（步行）：</strong> 從木津市場步行至難波八阪神社（約 15–18 分鐘）<br>
+                    <strong>選項 B（地鐵）：</strong> <strong><u>大國町站（大國町駅，だいこくまちえき）</u></strong>或<strong><u>今宮戎站（今宮戎駅，いまみやえびすえき / 千日前線，せんにちまえせん）</u></strong>→ <strong><u>難波站（なんばえき）</u></strong>，再步行至難波八阪神社<br>
+                    • 車程時間：約 2–3 分鐘<br>
+                    • 票價：成人 ￥190 (NT$ 38)<br>
+                    <a href="https://www.google.com/maps/dir/木津市場/難波八阪神社" target="_blank">Google Maps 路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 3：難波八阪神社 → 通天閣（步行或地鐵）</strong>
+                    <strong>起點：</strong> 難波八阪神社（難波八阪神社，なんばやさかじんじゃ）<br>
+                    <strong>終點：</strong> 通天閣（通天閣，つうてんかく）<br>
+                    <strong>選項 A（步行）：</strong> 從難波八阪神社步行至通天閣（約 15–20 分鐘）<br>
+                    <strong>選項 B（地鐵）：</strong> <strong><u>難波站（なんばえき / 千日前線，せんにちまえせん）</u></strong>→ <strong><u>恵美須町站（恵美須町駅，えびすちょうえき / 新世界/通天閣出口）</u></strong><br>
+                    • 車程時間：約 3–4 分鐘<br>
+                    • 票價：成人 ￥190 (NT$ 38)<br>
+                    • 出口：恵美須町站出站後，步行約 3–5 分鐘至通天閣<br>
+                    <a href="https://www.google.com/maps/dir/難波八阪神社/通天閣" target="_blank">Google Maps 步行路線連結</a> | <a href="https://www.google.com/maps/dir/なんば駅/恵美須町駅" target="_blank">地鐵路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 4：通天閣 → 四天王寺（步行或地鐵）</strong>
+                    <strong>起點：</strong> 通天閣（通天閣，つうてんかく）<br>
+                    <strong>終點：</strong> 四天王寺（四天王寺，してんのうじ）<br>
+                    <strong>選項 A（步行）：</strong> 從通天閣步行至四天王寺（約 15–20 分鐘）<br>
+                    <strong>選項 B（地鐵）：</strong> <strong><u>恵美須町站（恵美須町駅，えびすちょうえき / 堺筋線，さかいすじせん）</u></strong>→ <strong><u>動物園前站（動物園前駅，どうぶつえんまええき / 換乘）</u></strong>→ <strong><u>四天王寺前夕陽丘站（四天王寺前夕陽ヶ丘駅，してんのうじまえせいようがおかえき / 谷町線，たにまちせん）</u></strong><br>
+                    • 車程時間：約 8–10 分鐘（含換乘）<br>
+                    • 票價：成人 ￥230 (NT$ 46)<br>
+                    • 換乘指示：在<strong><u>動物園前站</u></strong>換乘谷町線（往大日方向，だいにち）<br>
+                    <a href="https://www.google.com/maps/dir/通天閣/四天王寺" target="_blank">Google Maps 路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 5：四天王寺 → 天王寺站（步行）</strong>
+                    <strong>起點：</strong> 四天王寺（四天王寺，してんのうじ）<br>
+                    <strong>終點：</strong> <strong><u>天王寺站（天王寺駅，てんのうじえき）</u></strong><br>
+                    • 步行路線：從四天王寺步行至<strong><u>天王寺站</u></strong>（約 10–15 分鐘）<br>
+                    <strong>地標指引：</strong> 朝著 HARUKAS 大樓（あべのハルカス）方向前進<br>
+                    <a href="https://www.google.com/maps/dir/四天王寺/天王寺駅" target="_blank">Google Maps 步行路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 6：天王寺站 → 心齋橋站（御堂筋線）</strong>
+                    <strong>起點：</strong> <strong><u>天王寺站（天王寺駅，てんのうじえき / 御堂筋線，みどうすじせん）</u></strong><br>
+                    • 月台：通常為 <strong><u>1 號月台（往千里中央方向，せんりちゅうおう）</u></strong><br>
+                    • 方向：往千里中央方向（往北）<br>
+                    <strong>終點：</strong> <strong><u>心齋橋站（心齋橋駅，しんさいばしえき                    ）</u></strong><br>
+                    • 車程時間：約 9–12 分鐘（直達）<br>
+                    • 票價：成人 ￥280 (NT$ 56)<br>
+                    <strong>出口指引：</strong> 從<strong><u>心齋橋站</u></strong>出站後，可步行至 PARCO（パルコ）、心齋橋筋商店街（心齋橋筋商店街，しんさいばしすじしょうてんがい）<br>
+                    <a href="https://www.google.com/maps/dir/天王寺駅/心齋橋駅" target="_blank">Google Maps 路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 7：心齋橋 → 難波Walk → 長堀橋站（回程）</strong>
+                    <strong>起點：</strong> 心齋橋（心齋橋，しんさいばし）<br>
+                    <strong>終點：</strong> <strong><u>長堀橋站（長堀橋駅，ながほりばしえき）</u></strong><br>
+                    • 步行：從心齋橋步行至難波Walk（なんばウォーク）、道頓堀（道頓堀，どうとんぼり）（約 5–10 分鐘）<br>
+                    <strong>回程選項 A（地鐵）：</strong> <strong><u>難波站（なんばえき / 堺筋線，さかいすじせん）</u></strong>→ <strong><u>長堀橋站</u></strong><br>
+                    • 車程時間：約 2 分鐘（僅 1 站）<br>
+                    • 票價：成人 ￥190 (NT$ 38)<br>
+                    <strong>回程選項 B（步行）：</strong> 從難波/道頓堀步行回 ESLEAD HOTEL Osaka Shinsaibashi（約 10–15 分鐘）<br>
+                    <strong>出口指引：</strong> 從<strong><u>長堀橋站</u></strong> 6 號出口出站，步行約 2 分鐘至飯店<br>
+                    <a href="https://www.google.com/maps/dir/心齋橋/長堀橋駅" target="_blank">Google Maps 路線連結</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">時間軸</div>
+
+                <div class="time-line">
+                    <strong>07:30</strong> 出門 → 07:50 抵「木津市場」周邊<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動 1：ESLEAD HOTEL Osaka Shinsaibashi → 木津市場（步行或地鐵）</strong>
+                            <strong>起點：</strong> ESLEAD HOTEL Osaka Shinsaibashi（<strong><u>長堀橋站</u></strong> 6 號出口，步行約 2 分鐘）<br>
+                            <strong>終點：</strong> 木津市場（木津市場，きづいちば）<br>
+                            <strong>選項 A（步行）：</strong> 從飯店步行至木津市場（約 12–15 分鐘）<br>
+                            <strong>選項 B（地鐵）：</strong> <strong><u>長堀橋站（長堀橋駅，ながほりばしえき / 堺筋線）</u></strong>→ <strong><u>日本橋站（日本橋駅，にっぽんばしえき / 換乘千日前線）</u></strong>→ <strong><u>大國町站（大國町駅，だいこくまちえき）</u></strong>或<strong><u>今宮戎站（今宮戎駅，いまみやえびすえき）</u></strong>，再步行至木津市場<br>
+                            • 車程時間：約 4–5 分鐘（含換乘）<br>
+                            • 票價：成人 ￥190 (NT$ 38)<br>
+                            <a href="https://www.google.com/maps/dir/ESLEAD+HOTEL+Osaka+Shinsaibashi/木津市場" target="_blank">Google Maps 路線連結</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>08:00–09:15</strong> 木津市場 早餐<br>
+                    • 市場海鮮丼：<span class="budget">￥1,200–￥2,200 (NT$ 242–443)</span><br>
+                    • 市場定食屋：<span class="budget">￥800–￥1,100 (NT$ 161–221)</span>
+                </div>
+
+                <div class="time-line">
+                    <strong>09:35–10:00</strong> 難波八阪神社（拍獅子頭舞台）<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動 2：木津市場 → 難波八阪神社（步行或地鐵）</strong>
+                            <strong>起點：</strong> 木津市場（木津市場，きづいちば）<br>
+                            <strong>終點：</strong> 難波八阪神社（難波八阪神社，なんばやさかじんじゃ）<br>
+                            <strong>選項 A（步行）：</strong> 從木津市場步行至難波八阪神社（約 15–18 分鐘）<br>
+                            <strong>選項 B（地鐵）：</strong> <strong><u>大國町站（大國町駅，だいこくまちえき）</u></strong>或<strong><u>今宮戎站（今宮戎駅，いまみやえびすえき / 千日前線，せんにちまえせん）</u></strong>→ <strong><u>難波站（なんばえき）</u></strong>，再步行至難波八阪神社<br>
+                            • 車程時間：約 2–3 分鐘<br>
+                            • 票價：成人 ￥190 (NT$ 38)<br>
+                            <a href="https://www.google.com/maps/dir/木津市場/難波八阪神社" target="_blank">Google Maps 路線連結</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>10:20–11:30</strong> 通天閣（新世界商圈順走；若不登塔可縮至50分）<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動 3：難波八阪神社 → 通天閣（步行或地鐵）</strong>
+                            <strong>起點：</strong> 難波八阪神社（難波八阪神社，なんばやさかじんじゃ）<br>
+                            <strong>終點：</strong> 通天閣（通天閣，つうてんかく）<br>
+                            <strong>選項 A（步行）：</strong> 從難波八阪神社步行至通天閣（約 15–20 分鐘）<br>
+                            <strong>選項 B（地鐵）：</strong> <strong><u>難波站（なんばえき / 千日前線，せんにちまえせん）</u></strong>→ <strong><u>恵美須町站（恵美須町駅，えびすちょうえき / 新世界/通天閣出口）</u></strong><br>
+                            • 車程時間：約 3–4 分鐘<br>
+                            • 票價：成人 ￥190 (NT$ 38)<br>
+                            • 出口：恵美須町站出站後，步行約 3–5 分鐘至通天閣<br>
+                            <a href="https://www.google.com/maps/dir/難波八阪神社/通天閣" target="_blank">Google Maps 步行路線連結</a> | <a href="https://www.google.com/maps/dir/なんば駅/恵美須町駅" target="_blank">地鐵路線連結</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>11:40–12:40</strong> 午餐（新世界周邊）<br>
+                    • 串カツだるま：<span class="budget">￥1,500–￥2,000 (NT$ 302–403)</span><br>
+                    • 大阪燒：<span class="budget">￥1,000–￥1,600 (NT$ 201–322)</span>
+                </div>
+
+                <div class="time-line">
+                    <strong>12:55–13:40</strong> 四天王寺（伽藍參觀／中門–金堂–五重塔步行環線）<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動 4：通天閣 → 四天王寺（步行或地鐵）</strong>
+                            <strong>起點：</strong> 通天閣（通天閣，つうてんかく）<br>
+                            <strong>終點：</strong> 四天王寺（四天王寺，してんのうじ）<br>
+                            <strong>選項 A（步行）：</strong> 從通天閣步行至四天王寺（約 15–20 分鐘）<br>
+                            <strong>選項 B（地鐵）：</strong> <strong><u>恵美須町站（恵美須町駅，えびすちょうえき / 堺筋線，さかいすじせん）</u></strong>→ <strong><u>動物園前站（動物園前駅，どうぶつえんまええき / 換乘）</u></strong>→ <strong><u>四天王寺前夕陽丘站（四天王寺前夕陽ヶ丘駅，してんのうじまえせいようがおかえき / 谷町線，たにまちせん）</u></strong><br>
+                            • 車程時間：約 8–10 分鐘（含換乘）<br>
+                            • 票價：成人 ￥230 (NT$ 46)<br>
+                            • 換乘指示：在<strong><u>動物園前站</u></strong>換乘谷町線（往大日方向，だいにち）<br>
+                            <a href="https://www.google.com/maps/dir/通天閣/四天王寺" target="_blank">Google Maps 路線連結</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>13:55–15:15</strong> 阿倍野HARUKAS 300觀景台（登塔＋眺望、拍照）<br>
+                    票價：成人約 <span class="budget">￥1,800 (NT$ 363)</span><br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動 5：四天王寺 → 天王寺站（步行）</strong>
+                            <strong>起點：</strong> 四天王寺（四天王寺，してんのうじ）<br>
+                            <strong>終點：</strong> <strong><u>天王寺站（天王寺駅，てんのうじえき）</u></strong><br>
+                            • 步行路線：從四天王寺步行至<strong><u>天王寺站</u></strong>（約 10–15 分鐘）<br>
+                            <strong>地標指引：</strong> 朝著 HARUKAS 大樓（あべのハルカス）方向前進<br>
+                            <a href="https://www.google.com/maps/dir/四天王寺/天王寺駅" target="_blank">Google Maps 步行路線連結</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>15:45–16:45</strong> 心齋橋 PARCO（從天王寺搭御堂筋線至心齋橋）<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動 6：天王寺站 → 心齋橋站（御堂筋線）</strong>
+                            <strong>起點：</strong> <strong><u>天王寺站（天王寺駅，てんのうじえき / 御堂筋線，みどうすじせん）</u></strong><br>
+                            • 月台：通常為 <strong><u>1 號月台（往千里中央方向，せんりちゅうおう）</u></strong><br>
+                            • 方向：往千里中央方向（往北）<br>
+                            <strong>終點：</strong> <strong><u>心齋橋站（心齋橋駅，しんさいばしえき）</u></strong><br>
+                            • 車程時間：約 9–12 分鐘（直達）<br>
+                            • 票價：成人 ￥280 (NT$ 56)<br>
+                            <strong>出口指引：</strong> 從<strong><u>心齋橋站</u></strong>出站後，可步行至 PARCO（パルコ）、心齋橋筋商店街（心齋橋筋商店街，しんさいばしすじしょうてんがい）<br>
+                            <a href="https://www.google.com/maps/dir/天王寺駅/心齋橋駅" target="_blank">Google Maps 路線連結</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>17:00–17:50</strong> 難波Walk 地下街（步行移動至道頓堀/難波）
+                </div>
+
+                <div class="time-line">
+                    <strong>18:00–19:00</strong> 晚餐<br>
+                    • やよい軒（難波）：<span class="budget">￥700–￥1,200／人</span><br>
+                    • 天丼てんや（道頓堀/心齋橋）：<span class="budget">￥650–￥1,100／人</span>
+                </div>
+
+                <div class="time-line">
+                    <strong>19:00–19:30</strong> 步行或地鐵回到長堀橋站<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動 7：心齋橋 → 難波Walk → 長堀橋站（回程）</strong>
+                            <strong>起點：</strong> 心齋橋（心齋橋，しんさいばし）<br>
+                            <strong>終點：</strong> <strong><u>長堀橋站（長堀橋駅，ながほりばしえき）</u></strong><br>
+                            • 步行：從心齋橋步行至難波Walk（なんばウォーク）、道頓堀（道頓堀，どうとんぼり）（約 5–10 分鐘）<br>
+                            <strong>回程選項 A（地鐵）：</strong> <strong><u>難波站（なんばえき / 堺筋線，さかいすじせん）</u></strong>→ <strong><u>長堀橋站</u></strong><br>
+                            • 車程時間：約 2 分鐘（僅 1 站）<br>
+                            • 票價：成人 ￥190 (NT$ 38)<br>
+                            <strong>回程選項 B（步行）：</strong> 從難波/道頓堀步行回 ESLEAD HOTEL Osaka Shinsaibashi（約 10–15 分鐘）<br>
+                            <strong>出口指引：</strong> 從<strong><u>長堀橋站</u></strong> 6 號出口出站，步行約 2 分鐘至飯店<br>
+                            <a href="https://www.google.com/maps/dir/心齋橋/長堀橋駅" target="_blank">Google Maps 路線連結</a>
+                        </div>
+                    </div>
+                    <strong>20:00前</strong> 抵飯店
+                </div>
+            </div>
+        </div>
+
+        <!-- 12/17 -->
+        <div class="day-content" id="day4">
+            <div class="day-title">12/17（三）USJ 無快通</div>
+
+            <div class="section">
+                <div class="section-title">票券</div>
+                <div class="info-item">
+                    1日票：<span class="budget">￥9,900 (NT$ 1,993)/人</span><br>
+                    全家四人：<span class="budget">￥39,600 (NT$ 7,972)</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">時間軸</div>
+
+                <div class="time-line">
+                    <strong>06:00</strong> 從 ESLEAD HOTEL Osaka Shinsaibashi 出發（Uber） → 06:30–06:45 抵 USJ 入口排隊<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>去程：Uber 叫車</strong><br>
+                            路線：ESLEAD HOTEL Osaka Shinsaibashi → Universal Studios Japan<br>
+                            交通預估：單趟約 <span class="budget">￥3,500–￥5,500 (NT$ 705–1,108)</span>（4 人共乘一車，總費用）<br>
+                            <strong>Uber 下車點位置：</strong><br>
+                            • 通常 Uber 會停在 USJ 入口廣場附近或 CityWalk 入口附近的允許停車區域<br>
+                            • Uber 不能直接在 USJ 正門的計程車站上下車<br>
+                            • 建議在 Uber App 中設定目的地為「日本環球影城」或「Universal Studios Japan」<br>
+                            <strong>排隊入口位置：</strong> 日本環球影城正門入口（2 Chome-1-33 Sakurajima）<br>
+                            <strong>從下車點到排隊入口的步行路線：</strong><br>
+                            <strong>情況 A：如果 Uber 停在 CityWalk 入口附近</strong><br>
+                            • 步行時間：約 5–7 分鐘<br>
+                            • 路線：穿過 Universal CityWalk → 經過拱門（Universal Studios Arch Gate）→ 看到影城地球儀 → 到達安檢處 → 正門入口<br>
+                            <strong>情況 B：如果 Uber 直接停在 USJ 入口廣場附近</strong><br>
+                            • 步行時間：約 2–3 分鐘<br>
+                            • 路線：直接走向 USJ 正門入口<br>
+                            <strong>注意事項：</strong><br>
+                            • 如果 Uber 司機直接停在排隊入口附近，則無需額外步行<br>
+                            • 建議在 Uber 上車時，告知司機目的地為「USJ 正門入口」或「Universal Studios Japan Main Entrance」<br>
+                            • 如果下車點不確定，可詢問司機或查看周圍地標（尋找 USJ 標誌、地球儀）<br>
+                            • 早上 06:30–07:00 時段，可能已有排隊人潮，可跟隨人群方向前往入口
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>07:00–08:30</strong> 入場排隊與安檢；入園立刻抽SNW/HP入場（若分流）
+                </div>
+
+                <div class="time-line">
+                    <strong>08:30–10:45</strong> Super Nintendo World<br>
+                    • Mario Kart：候位 ≤70–80分就排；若 >80分先去 Yoshi's Adventure（常見20–40分）再回補 Mario Kart<br>
+                    • 不買PUP：以場景拍照、商店、角色互動為主
+                </div>
+
+                <div class="time-line">
+                    <strong>10:45–11:20</strong> 三根掃帚（The Three Broomsticks）早午餐（刻意避開11:30–13:30）<br>
+                    餐費估：成人每人 <span class="budget">￥2,000–￥3,000 (NT$ 403–605)</span>
+                </div>
+
+                <div class="time-line">
+                    <strong>11:20–14:30</strong> The Wizarding World of Harry Potter<br>
+                    • 奧利凡德魔杖體驗、村莊逛街、奶油啤酒、霍格華茲外觀拍照<br>
+                    • Forbidden Journey：127cm可搭但體感強，易暈可跳過
+                </div>
+
+                <div class="time-line">
+                    <strong>14:30–16:30</strong> Minion Park＋中低刺激<br>
+                    Despicable Me: Minion Mayhem 視App候位插空
+                </div>
+
+                <div class="time-line">
+                    <strong>16:30–18:00</strong> 傍晚輕鬆段<br>
+                    JAWS或園區拍照、伴手禮採買
+                </div>
+
+                <div class="time-line">
+                    <strong>18:00–19:00</strong> CityWalk 晚餐<br>
+                    餐費估：成人每人 <span class="budget">￥1,200–￥2,000 (NT$ 242–403)</span>
+                </div>
+
+                <div class="time-line">
+                    <strong>19:00–</strong> 回程（Uber叫車返回飯店，約15–20分鐘車程）<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>回程：Uber 叫車</strong><br>
+                            路線：Universal Studios Japan → ESLEAD HOTEL Osaka Shinsaibashi<br>
+                            交通預估：單趟約 <span class="budget">￥3,500–￥5,500 (NT$ 705–1,108)</span>（4 人共乘一車，總費用）<br>
+                            • 車程時間：約 15–20 分鐘
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">無快通排隊策略</div>
+                <ul>
+                    <li>先卡SNW，Mario Kart設「80分」為換線門檻；>80分就先改Yoshi或去拍照/商店，30–45分後再回補</li>
+                    <li>Forbidden Journey體感強易暈可跳過；用表演/巡遊切割長等候</li>
+                    <li>全程用USJ App掌握候位與節目表</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 12/18 -->
+        <div class="day-content" id="day5">
+            <div class="day-title">12/18（四）京都一日</div>
+
+            <div class="section">
+                <div class="section-title">交通</div>
+                <div class="info-item">
+                    <strong>三位大人：</strong> 使用1日京阪觀光（每人 NT$ 330），可無限次搭乘京阪電鐵指定區間<br>
+                    <strong>12歲小孩：</strong> 使用ICOCA，長堀橋 →（堺筋線）日本橋 →（千日前線）難波 →（御堂筋線）淀屋橋 →（京阪）祇園四条／清水五条<br>
+                    市內移動以京阪/地下鐵＋步行；18:00 左右從祇園四条 →（京阪/地下鐵）→ 長堀橋，19:20 前抵達（20:00 前回飯店）<br>
+                    <strong>⚠️ 重要提醒：</strong> 10:45 前必須抵達 MOCOMOCO 和服店，17:00 前必須回到 MOCOMOCO 和服店歸還和服
+                </div>
+            </div>
+
+            <div class="section" style="display: none;">
+                <div class="section-title">交通詳細指引（完整版）</div>
+                <div class="route-toggle collapsed" onclick="toggleRoute(this)">
+                    展開完整交通指引
+                </div>
+                <div class="route-details">
+                    <div class="route-card">
+                        <strong>移動 1：長堀橋站 → 難波站（堺筋線）</strong>
+                        <strong>起點：</strong> <strong><u>長堀橋站（長堀橋駅，ながほりばしえき / 堺筋線，さかいすじせん）</u></strong><br>
+                        • 月台：通常為 <strong><u>往天下茶屋方向（てんがちゃや）</u></strong><br>
+                    • 方向：往天下茶屋方向（終點站：天下茶屋駅，てんがちゃやえき）<br>
+                    <strong>終點：</strong> 難波站（なんばえき / 堺筋線）<br>
+                    • 車程時間：約 2 分鐘（僅 1 站）<br>
+                    • 票價：成人 ￥190 (NT$ 38)<br>
+                    <strong>換乘指示：</strong> 在難波站換乘御堂筋線（みどうすじせん）前往淀屋橋<br>
+                    <a href="https://www.google.com/maps/dir/長堀橋駅/なんば駅" target="_blank">Google Maps 路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 2：難波站 → 淀屋橋站（御堂筋線，換乘）</strong>
+                    <strong>換乘指示：</strong><br>
+                    1. 從千日前線月台下車<br>
+                    2. 按照站內「御堂筋線（みどうすじせん）」指示牌前進（可能需要上樓或下樓）<br>
+                    3. 到達御堂筋線月台<br>
+                    <strong>起點：</strong> 難波站（なんばえき / 御堂筋線，みどうすじせん）<br>
+                    • 月台：通常為 <strong><u>1 號月台（往千里中央方向，せんりちゅうおう）</u></strong><br>
+                    • 方向：往千里中央方向（往北）<br>
+                    <strong>終點：</strong> <strong><u>淀屋橋站（淀屋橋駅，よどやばしえき                    ）</u></strong><br>
+                    • 車程時間：約 5–6 分鐘（直達）<br>
+                    • 票價：成人 ￥230 (NT$ 46)<br>
+                    <a href="https://www.google.com/maps/dir/なんば駅/淀屋橋駅" target="_blank">Google Maps 路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 3：淀屋橋站 → 京阪淀屋橋站（步行轉乘）</strong>
+                    <strong>起點：</strong> <strong><u>淀屋橋站（淀屋橋駅，よどやばしえき / 大阪地鐵）</u></strong><br>
+                    <strong>終點：</strong> <strong><u>京阪淀屋橋站（京阪淀屋橋駅，けいはんよどやばしえき / 京阪本線，けいはんほんせん）</u></strong><br>
+                    • 步行路線：從<strong><u>大阪地鐵淀屋橋站</u></strong>步行至<strong><u>京阪電鐵淀屋橋站</u></strong>（同一建築內，有連通道）<br>
+                    • 步行時間：約 2–3 分鐘<br>
+                    <strong>地標指引：</strong> 按照「京阪電鐵（けいはんでんてつ）」或「Keihan」指示牌前進<br>
+                    <a href="https://www.google.com/maps/dir/淀屋橋駅/京阪淀屋橋駅" target="_blank">Google Maps 步行路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 4：京阪淀屋橋站 → 祇園四条站或清水五条站（京阪本線）</strong>
+                    <strong>起點：</strong> <strong><u>京阪淀屋橋站（京阪淀屋橋駅，けいはんよどやばしえき / 京阪本線，けいはんほんせん）</u></strong><br>
+                    • 月台：通常為 <strong><u>1 號月台（往出町柳方向，でまちやなぎ）</u></strong><br>
+                    • 方向：往出町柳方向（往京都方向）<br>
+                    <strong>終點選項：</strong><br>
+                    <strong>選項 A：</strong> <strong><u>祇園四条站（祇園四条駅，ぎおんしじょうえき / 建議，離和服店較近）</u></strong><br>
+                    • 車程時間：約 50–55 分鐘<br>
+                    • 票價：成人 ￥410 (NT$ 83)<br>
+                    <strong>選項 B：</strong> <strong><u>清水五条站（清水五条駅，きよみずごじょうえき / 如和服店在清水寺附近）</u></strong><br>
+                    • 車程時間：約 48–52 分鐘<br>
+                    • 票價：成人 ￥410 (NT$ 83)<br>
+                    <strong>注意事項：</strong><br>
+                    • 京阪本線有普通、準急、急行等不同車種，建議搭乘急行列車較快<br>
+                    • 部分列車可能需要在某些站換乘，請注意車廂內廣播<br>
+                    <a href="https://www.google.com/maps/dir/京阪淀屋橋駅/祇園四条駅" target="_blank">Google Maps 路線連結（祇園四条）</a> | <a href="https://www.google.com/maps/dir/京阪淀屋橋駅/清水五条駅" target="_blank">（清水五条）</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 5：祇園四条站 → 伏見稻荷大社（京阪本線）</strong>
+                    <strong>起點：</strong> 祇園四条站（祇園四条駅，ぎおんしじょうえき / 京阪本線，けいはんほんせん）<br>
+                    • 月台：通常為 <strong><u>2 號月台（往淀屋橋方向，よどやばし / 但需確認是否為往伏見稻荷方向的列車）</u></strong><br>
+                    • 方向：往淀屋橋方向（往南）<br>
+                    <strong>終點：</strong> <strong><u>伏見稻荷站（伏見稲荷駅，ふしみいなりえき                    ）</u></strong><br>
+                    • 車程時間：約 8–10 分鐘<br>
+                    • 票價：成人 ￥210 (NT$ 42)<br>
+                    <strong>出口指引：</strong> 從伏見稻荷站出站後，步行約 3–5 分鐘至伏見稻荷大社（伏見稲荷大社，ふしみいなりたいしゃ）<br>
+                    <a href="https://www.google.com/maps/dir/祇園四条駅/伏見稲荷駅" target="_blank">Google Maps 路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 6：伏見稻荷站 → 清水五条站或祇園四条站（京阪本線，回程）</strong>
+                    <strong>起點：</strong> <strong><u>伏見稻荷站（伏見稲荷駅，ふしみいなりえき / 京阪本線，けいはんほんせん）</u></strong><br>
+                    • 月台：通常為 <strong><u>1 號月台（往出町柳方向，でまちやなぎ）</u></strong><br>
+                    • 方向：往出町柳方向（往北）<br>
+                    <strong>終點：</strong> <strong><u>清水五条站（清水五条駅，きよみずごじょうえき）</u></strong>或<strong><u>祇園四条站（祇園四条駅，ぎおんしじょうえき）</u></strong>（依行程安排）<br>
+                    • 車程時間：約 8–12 分鐘<br>
+                    • 票價：成人 ￥210–￥280 (NT$ 42–56)<br>
+                    <a href="https://www.google.com/maps/dir/伏見稲荷駅/祇園四条駅" target="_blank">Google Maps 路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 7：祇園四条站 → 長堀橋站（回程）</strong>
+                    <strong>路線：</strong> <strong><u>祇園四条站（祇園四条駅，ぎおんしじょうえき / 京阪本線，けいはんほんせん）</u></strong>→ <strong><u>淀屋橋站（淀屋橋駅，よどやばしえき / 步行轉乘）</u></strong>→ <strong><u>淀屋橋站（御堂筋線，みどうすじせん）</u></strong>→ <strong><u>難波站（なんばえき / 換乘堺筋線，さかいすじせん）</u></strong>→ <strong><u>長堀橋站（長堀橋駅，ながほりばしえき）</u></strong><br>
+                    <strong>詳細步驟：</strong><br>
+                    1. 從<strong><u>祇園四条站</u></strong>搭乘京阪本線（往淀屋橋方向，よどやばし）至<strong><u>淀屋橋站</u></strong>（約 50–55 分鐘）<br>
+                    2. 在<strong><u>淀屋橋站</u></strong>步行轉乘至<strong><u>大阪地鐵淀屋橋站</u></strong>（約 2–3 分鐘）<br>
+                    3. 搭乘御堂筋線（往難波方向，なんば）至<strong><u>難波站</u></strong>（約 5–6 分鐘）<br>
+                    4. 在<strong><u>難波站</u></strong>換乘堺筋線（往天下茶屋方向，てんがちゃや）至<strong><u>長堀橋站</u></strong>（約 2 分鐘）<br>
+                    • 總車程時間：約 60–65 分鐘（含換乘）<br>
+                    • 總票價：成人約 ￥840 (NT$ 169)（京阪 ￥410 + 地鐵 ￥430）<br>
+                    <strong>出口指引：</strong> 從<strong><u>長堀橋站</u></strong> 6 號出口出站，步行約 2 分鐘至 ESLEAD HOTEL Osaka Shinsaibashi<br>
+                    <strong>注意事項：</strong><br>
+                    • 建議 18:30 前開始回程，以確保 19:50 前抵達長堀橋<br>
+                    • 跨府轉乘較複雜，建議預留充足時間<br>
+                    <a href="https://www.google.com/maps/dir/祇園四条駅/長堀橋駅" target="_blank">Google Maps 路線連結</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">時間軸</div>
+
+                <div class="time-line">
+                    <strong>06:45</strong> 出門 → 07:55 抵京都（祇園四条站）<br>
+                    <strong>⚠️ 重要：</strong> 為確保 10:45 前抵達 MOCOMOCO 和服店，請務必準時出發<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動 1：長堀橋站 → 難波站（堺筋線）</strong>
+                            <strong>起點：</strong> <strong><u>長堀橋站（長堀橋駅，ながほりばしえき / 堺筋線，さかいすじせん）</u></strong><br>
+                            • 月台：通常為 <strong><u>往天下茶屋方向（てんがちゃや）</u></strong><br>
+                            • 方向：往天下茶屋方向（終點站：天下茶屋駅，てんがちゃやえき）<br>
+                            <strong>終點：</strong> <strong><u>難波站（なんばえき / 堺筋線）</u></strong><br>
+                            • 車程時間：約 2 分鐘（僅 1 站）<br>
+                            • 票價：成人 ￥190 (NT$ 38)<br>
+                            <strong>換乘指示：</strong> 在難波站換乘御堂筋線（みどうすじせん）前往淀屋橋<br>
+                            <a href="https://www.google.com/maps/dir/長堀橋駅/なんば駅" target="_blank">Google Maps 路線連結</a>
+                        </div>
+                        <div class="route-card">
+                            <strong>移動 2：難波站 → 淀屋橋站（御堂筋線，換乘）</strong>
+                            <strong>換乘指示：</strong><br>
+                            1. 從千日前線月台下車<br>
+                            2. 按照站內「御堂筋線（みどうすじせん）」指示牌前進（可能需要上樓或下樓）<br>
+                            3. 到達御堂筋線月台<br>
+                            <strong>起點：</strong> <strong><u>難波站（なんばえき / 御堂筋線，みどうすじせん）</u></strong><br>
+                            • 月台：通常為 <strong><u>1 號月台（往千里中央方向，せんりちゅうおう）</u></strong><br>
+                            • 方向：往千里中央方向（往北）<br>
+                            <strong>終點：</strong> <strong><u>淀屋橋站（淀屋橋駅，よどやばしえき）</u></strong><br>
+                            • 車程時間：約 5–6 分鐘（直達）<br>
+                            • 票價：成人 ￥230 (NT$ 46)<br>
+                            <a href="https://www.google.com/maps/dir/なんば駅/淀屋橋駅" target="_blank">Google Maps 路線連結</a>
+                        </div>
+                        <div class="route-card">
+                            <strong>移動 3：淀屋橋站 → 京阪淀屋橋站（步行轉乘）</strong>
+                            <strong>起點：</strong> <strong><u>淀屋橋站（淀屋橋駅，よどやばしえき / 大阪地鐵）</u></strong><br>
+                            <strong>終點：</strong> <strong><u>京阪淀屋橋站（京阪淀屋橋駅，けいはんよどやばしえき / 京阪本線，けいはんほんせん）</u></strong><br>
+                            • 步行路線：從<strong><u>大阪地鐵淀屋橋站</u></strong>步行至<strong><u>京阪電鐵淀屋橋站</u></strong>（同一建築內，有連通道）<br>
+                            • 步行時間：約 2–3 分鐘<br>
+                            <strong>地標指引：</strong> 按照「京阪電鐵（けいはんでんてつ）」或「Keihan」指示牌前進<br>
+                            <a href="https://www.google.com/maps/dir/淀屋橋駅/京阪淀屋橋駅" target="_blank">Google Maps 步行路線連結</a>
+                        </div>
+                        <div class="route-card">
+                            <strong>移動 4：京阪淀屋橋站 → 祇園四条站或清水五条站（京阪本線）</strong>
+                            <strong>起點：</strong> <strong><u>京阪淀屋橋站（京阪淀屋橋駅，けいはんよどやばしえき / 京阪本線，けいはんほんせん）</u></strong><br>
+                            • 月台：通常為 <strong><u>1 號月台（往出町柳方向，でまちやなぎ）</u></strong><br>
+                            • 方向：往出町柳方向（往京都方向）<br>
+                            <strong>終點選項：</strong><br>
+                            <strong>選項 A：</strong> <strong><u>祇園四条站（祇園四条駅，ぎおんしじょうえき / 建議，離和服店較近）</u></strong><br>
+                            • 車程時間：約 50–55 分鐘<br>
+                            • 票價：成人 ￥410 (NT$ 83)<br>
+                            <strong>選項 B：</strong> <strong><u>清水五条站（清水五条駅，きよみずごじょうえき / 如和服店在清水寺附近）</u></strong><br>
+                            • 車程時間：約 48–52 分鐘<br>
+                            • 票價：成人 ￥410 (NT$ 83)<br>
+                            <strong>注意事項：</strong><br>
+                            • 京阪本線有普通、準急、急行等不同車種，建議搭乘急行列車較快<br>
+                            • 部分列車可能需要在某些站換乘，請注意車廂內廣播<br>
+                            <a href="https://www.google.com/maps/dir/京阪淀屋橋駅/祇園四条駅" target="_blank">Google Maps 路線連結（祇園四条）</a> | <a href="https://www.google.com/maps/dir/京阪淀屋橋駅/清水五条駅" target="_blank">（清水五条）</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>07:55–10:30</strong> 抵達京都後，可先在祇園四条站周邊稍作休息或簡單早餐<br>
+                    • 建議在祇園四条站附近咖啡店或便利商店購買輕食<br>
+                    • 預留時間前往 MOCOMOCO 和服店（從祇園四条站步行約 5–10 分鐘）
+                </div>
+
+                <div class="time-line">
+                    <strong>10:45–11:00</strong> MOCOMOCO 和服店 著裝（<strong>⚠️ 強制時間：10:45 前必須抵達，建議提早 10–15 分鐘）</strong><br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看和服店位置與交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>MOCOMOCO 和服店位置與交通</strong><br>
+                            <strong>起點：</strong> <strong><u>祇園四条站（祇園四条駅，ぎおんしじょうえき）</u></strong><br>
+                            <strong>終點：</strong> MOCOMOCO 和服店<br>
+                            • 步行路線：從<strong><u>祇園四条站</u></strong>出站後，按照 Google Maps 導航前往 MOCOMOCO 和服店<br>
+                            • 步行時間：約 5–10 分鐘（視具體位置而定）<br>
+                            <strong>⚠️ 重要提醒：</strong><br>
+                            • 請務必在 10:45 前抵達和服店，建議 10:30–10:35 到達<br>
+                            • 預留充足時間尋找店鋪位置，避免遲到<br>
+                            • 建議提前查詢 MOCOMOCO 和服店的確切地址和 Google Maps 位置<br>
+                            <a href="https://www.google.com/maps/search/MOCOMOCO+和服+京都" target="_blank">Google Maps 和服店位置</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>11:00–12:00</strong> 伏見稻荷大社（千本鳥居平地段為主，時間縮短）<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動 5：祇園四条站 → 伏見稻荷大社（京阪本線）</strong>
+                            <strong>起點：</strong> <strong><u>祇園四条站（祇園四条駅，ぎおんしじょうえき / 京阪本線，けいはんほんせん）</u></strong><br>
+                            • 月台：通常為 <strong><u>2 號月台（往淀屋橋方向，よどやばし / 但需確認是否為往伏見稻荷方向的列車）</u></strong><br>
+                            • 方向：往淀屋橋方向（往南）<br>
+                            <strong>終點：</strong> <strong><u>伏見稻荷站（伏見稲荷駅，ふしみいなりえき）</u></strong><br>
+                            • 車程時間：約 8–10 分鐘<br>
+                            • 票價：成人 ￥210 (NT$ 42)<br>
+                            <strong>出口指引：</strong> 從伏見稻荷站出站後，步行約 3–5 分鐘至伏見稻荷大社（伏見稲荷大社，ふしみいなりたいしゃ）<br>
+                            <a href="https://www.google.com/maps/dir/祇園四条駅/伏見稲荷駅" target="_blank">Google Maps 路線連結</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>12:00–12:45</strong> 午餐（時間縮短）<br>
+                    • 祢ざめ家（祢ざめ家，ねざめや）伏見稻荷門前：鰻魚丼（うなぎ丼，うなぎどん） <span class="budget">￥3,000 (NT$ 604)</span><br>
+                    • 或選擇便利商店輕食，節省時間
+                </div>
+
+                <div class="time-line">
+                    <strong>12:45–14:15</strong> 清水寺 → 二年坂/三年坂（邊走邊拍，時間縮短）<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動 6：伏見稻荷站 → 清水五条站或祇園四条站（京阪本線，回程）</strong>
+                            <strong>起點：</strong> <strong><u>伏見稻荷站（伏見稲荷駅，ふしみいなりえき / 京阪本線，けいはんほんせん）</u></strong><br>
+                            • 月台：通常為 <strong><u>1 號月台（往出町柳方向，でまちやなぎ）</u></strong><br>
+                            • 方向：往出町柳方向（往北）<br>
+                            <strong>終點：</strong> <strong><u>清水五条站（清水五条駅，きよみずごじょうえき）</u></strong>或<strong><u>祇園四条站（祇園四条駅，ぎおんしじょうえき）</u></strong>（依行程安排）<br>
+                            • 車程時間：約 8–12 分鐘<br>
+                            • 票價：成人 ￥210–￥280 (NT$ 42–56)<br>
+                            <a href="https://www.google.com/maps/dir/伏見稲荷駅/祇園四条駅" target="_blank">Google Maps 路線連結</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>14:15–15:00</strong> 八坂神社（八坂神社，やさかじんじゃ）→ 花見小路（花見小路，はなみこうじ）（時間縮短）
+                </div>
+
+                <div class="time-line">
+                    <strong>15:00–15:30</strong> 鴨川散步（鴨川，かもがわ / 四条大橋周邊，時間縮短）
+                </div>
+
+                <div class="time-line">
+                    <strong>15:30–16:20</strong> 甜點或休息（時間縮短）<br>
+                    祇園辻利（ぎおんつじり）／茶寮都路里（さりょうつじり）：抹茶百匯/聖代（抹茶パフェ/パフェ，まっちゃぱふぇ） <span class="budget">￥1,200–￥1,800 (NT$ 242–363)</span><br>
+                    <strong>⚠️ 重要：</strong> 請在 16:20 前結束，準備前往 MOCOMOCO 和服店歸還和服
+                </div>
+
+                <div class="time-line">
+                    <strong>16:45–17:00</strong> MOCOMOCO 和服店 歸還和服（<strong>⚠️ 強制時間：17:00 前必須抵達，建議提早 10–15 分鐘）</strong><br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看和服店位置與交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>前往 MOCOMOCO 和服店歸還和服</strong><br>
+                            <strong>起點：</strong> 祇園四条站周邊（甜點店或鴨川附近）<br>
+                            <strong>終點：</strong> MOCOMOCO 和服店<br>
+                            • 步行路線：從祇園四条站周邊步行前往 MOCOMOCO 和服店<br>
+                            • 步行時間：約 5–10 分鐘（視具體位置而定）<br>
+                            <strong>⚠️ 重要提醒：</strong><br>
+                            • 請務必在 17:00 前抵達和服店，建議 16:45–16:50 到達<br>
+                            • 預留充足時間尋找店鋪位置，避免遲到<br>
+                            • 建議提前確認 MOCOMOCO 和服店的確切地址和路線<br>
+                            <a href="https://www.google.com/maps/search/MOCOMOCO+和服+京都" target="_blank">Google Maps 和服店位置</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>17:00–18:00</strong> 晚餐<br>
+                    • かつくら（Katsukura，かつくら）：里肌豬排定食（ロースかつ定食，ろーすかつていしょく） <span class="budget">￥2,200 (NT$ 443)</span><br>
+                    • 焼肉 弘（焼肉 弘，やきにく ひろし）：和牛燒肉拼盤（和牛焼き肉盛り合わせ，わぎゅうやきにくもりあわせ / 兩人份）每人約 <span class="budget">￥3,500 (NT$ 705)</span><br>
+                    • 或選擇祇園四条站附近的快速餐廳，節省時間
+                </div>
+
+                <div class="time-line">
+                    <strong>18:00–19:20</strong> 返回長堀橋站（達成20:00前回飯店）<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動 7：祇園四条站 → 長堀橋站（回程）</strong>
+                            <strong>路線：</strong> <strong><u>祇園四条站（祇園四条駅，ぎおんしじょうえき / 京阪本線，けいはんほんせん）</u></strong>→ <strong><u>淀屋橋站（淀屋橋駅，よどやばしえき / 步行轉乘）</u></strong>→ <strong><u>淀屋橋站（御堂筋線，みどうすじせん）</u></strong>→ <strong><u>難波站（なんばえき / 換乘堺筋線，さかいすじせん）</u></strong>→ <strong><u>長堀橋站（長堀橋駅，ながほりばしえき）</u></strong><br>
+                            <strong>詳細步驟：</strong><br>
+                            1. 從<strong><u>祇園四条站</u></strong>搭乘京阪本線（往淀屋橋方向，よどやばし）至<strong><u>淀屋橋站</u></strong>（約 50–55 分鐘）<br>
+                            2. 在<strong><u>淀屋橋站</u></strong>步行轉乘至<strong><u>大阪地鐵淀屋橋站</u></strong>（約 2–3 分鐘）<br>
+                            3. 搭乘御堂筋線（往難波方向，なんば）至<strong><u>難波站</u></strong>（約 5–6 分鐘）<br>
+                            4. 在<strong><u>難波站</u></strong>換乘堺筋線（往天下茶屋方向，てんがちゃや）至<strong><u>長堀橋站</u></strong>（約 2 分鐘）<br>
+                            • 總車程時間：約 60–65 分鐘（含換乘）<br>
+                            • 總票價：成人約 ￥840 (NT$ 169)（京阪 ￥410 + 地鐵 ￥430）<br>
+                            <strong>出口指引：</strong> 從<strong><u>長堀橋站</u></strong> 6 號出口出站，步行約 2 分鐘至 ESLEAD HOTEL Osaka Shinsaibashi<br>
+                            <strong>注意事項：</strong><br>
+                            • 建議 18:00 前開始回程，以確保 19:20 前抵達長堀橋（20:00 前回飯店）<br>
+                            • 跨府轉乘較複雜，建議預留充足時間<br>
+                            <a href="https://www.google.com/maps/dir/祇園四条駅/長堀橋駅" target="_blank">Google Maps 路線連結</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 12/19 -->
+        <div class="day-content" id="day6">
+            <div class="day-title">12/19（五）心齋橋/難波採買</div>
+
+            <div class="section">
+                <div class="section-title">交通</div>
+                <div class="info-item">
+                    全程ICOCA<br>
+                    步行＋大阪 Metro 為主；晚間從「南海難波」搭空港急行至 KIX（建議 19:30–20:00 出發，保留 2.5–3 小時，因車程較長）
+                </div>
+            </div>
+
+            <div class="section" style="display: none;">
+                <div class="section-title">交通詳細指引（完整版）</div>
+                <div class="route-toggle collapsed" onclick="toggleRoute(this)">
+                    展開完整交通指引
+                </div>
+                <div class="route-details">
+                    <div class="route-card">
+                        <strong>移動 1：ESLEAD HOTEL Osaka Shinsaibashi → 橘子街（步行或地鐵）</strong>
+                        <strong>起點：</strong> ESLEAD HOTEL Osaka Shinsaibashi（<strong><u>長堀橋站</u></strong> 6 號出口，步行約 2 分鐘）<br>
+                    <strong>終點：</strong> 橘子街（堀江橘通，ほりえたちばなどおり / Orange Street）<br>
+                    <strong>選項 A（步行）：</strong> 從飯店步行至橘子街（約 18–22 分鐘）<br>
+                    <strong>選項 B（地鐵）：</strong> <strong><u>長堀橋站（長堀橋駅，ながほりばしえき / 堺筋線）</u></strong>→ <strong><u>難波站（なんばえき / 換乘四つ橋線，よつばしせん）</u></strong>→ <strong><u>四ツ橋站（四ツ橋駅，よつばしえき）</u></strong>，再步行至橘子街<br>
+                    • 換乘指示：在難波站換乘四つ橋線（往住之江公園方向，すみのえこうえん）<br>
+                    • 車程時間：約 3–4 分鐘（含換乘）<br>
+                    • 票價：成人 ￥230 (NT$ 46)<br>
+                    • 從四ツ橋站步行至橘子街：約 6–8 分鐘<br>
+                    <a href="https://www.google.com/maps/dir/ESLEAD+HOTEL+Osaka+Shinsaibashi/堀江橘通" target="_blank">Google Maps 步行路線連結</a> | <a href="https://www.google.com/maps/dir/長堀橋駅/四ツ橋駅" target="_blank">地鐵路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 2：橘子街 → 美國村（步行）</strong>
+                    <strong>起點：</strong> 橘子街（堀江橘通，ほりえたちばなどおり）<br>
+                    <strong>終點：</strong> 美國村（アメリカ村，あめりかむら / Triangle Park，トライアングルパーク）<br>
+                    • 步行路線：從橘子街步行至美國村（Triangle Park 一帶）<br>
+                    • 步行時間：約 5–10 分鐘<br>
+                    <strong>地標指引：</strong> 使用 Google Maps 導航至「美國村」或「Triangle Park」<br>
+                    <a href="https://www.google.com/maps/dir/堀江橘通/アメリカ村" target="_blank">Google Maps 步行路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 3：美國村 → 心齋橋筋商店街（步行）</strong>
+                    <strong>起點：</strong> 美國村（アメリカ村，あめりかむら）<br>
+                    <strong>終點：</strong> 心齋橋筋商店街（心齋橋筋商店街，しんさいばしすじしょうてんがい）<br>
+                    • 步行路線：從美國村步行至心齋橋筋商店街<br>
+                    • 步行時間：約 5–10 分鐘<br>
+                    <strong>地標指引：</strong> 朝著心齋橋（心齋橋，しんさいばし）方向前進<br>
+                    <a href="https://www.google.com/maps/dir/アメリカ村/心齋橋筋商店街" target="_blank">Google Maps 步行路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 4：心齋橋 → 道頓堀 → 難波Walk（步行）</strong>
+                    <strong>起點：</strong> 心齋橋筋商店街（心齋橋筋商店街，しんさいばしすじしょうてんがい）<br>
+                    <strong>終點：</strong> 難波Walk（なんばウォーク）<br>
+                    • 步行路線：從心齋橋筋商店街 → 戎橋筋（戎橋筋，えびすばしすじ）→ 道頓堀（道頓堀，どうとんぼり）→ 難波Walk<br>
+                    • 步行時間：約 10–15 分鐘<br>
+                    <strong>地標指引：</strong> 沿著商店街前進，會經過戎橋（戎橋，えびすばし / 連接心齋橋與道頓堀）<br>
+                    <a href="https://www.google.com/maps/dir/心齋橋/道頓堀/なんばウォーク" target="_blank">Google Maps 步行路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 5：難波Walk → PARCO（步行或地鐵）</strong>
+                    <strong>起點：</strong> 難波Walk（なんばウォーク）<br>
+                    <strong>終點：</strong> 心齋橋 PARCO（心齋橋パルコ，しんさいばしぱるこ）<br>
+                    <strong>選項 A（步行）：</strong> 從難波Walk 步行至心齋橋 PARCO（約 5–10 分鐘）<br>
+                    <strong>選項 B（地鐵）：</strong> <strong><u>難波站（なんばえき / 御堂筋線，みどうすじせん）</u></strong>→ <strong><u>心齋橋站（心齋橋駅，しんさいばしえき）</u></strong><br>
+                    • 車程時間：約 2 分鐘（僅 1 站）<br>
+                    • 票價：成人 ￥190 (NT$ 38)<br>
+                    <a href="https://www.google.com/maps/dir/なんばウォーク/心齋橋パルコ" target="_blank">Google Maps 步行路線連結</a> | <a href="https://www.google.com/maps/dir/なんば駅/心齋橋駅" target="_blank">地鐵路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 6：心齋橋/難波 → ESLEAD HOTEL Osaka Shinsaibashi（取行李）</strong>
+                    <strong>起點：</strong> 心齋橋（心齋橋，しんさいばし）或難波（なんば）<br>
+                    <strong>終點：</strong> ESLEAD HOTEL Osaka Shinsaibashi（長堀橋站 6 號出口，步行約 2 分鐘）<br>
+                    <strong>選項 A（地鐵）：</strong> <strong><u>難波站（なんばえき / 堺筋線，さかいすじせん）</u></strong>→ <strong><u>長堀橋站（長堀橋駅，ながほりばしえき）</u></strong><br>
+                    • 車程時間：約 2 分鐘（僅 1 站）<br>
+                    • 票價：成人 ￥190 (NT$ 38)<br>
+                    <strong>選項 B（步行）：</strong> 從難波/道頓堀步行回 ESLEAD HOTEL Osaka Shinsaibashi（約 10–15 分鐘）<br>
+                    <a href="https://www.google.com/maps/dir/なんば駅/長堀橋駅" target="_blank">Google Maps 路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 7：長堀橋站 → 南海難波站（步行轉乘）</strong>
+                    <strong>起點：</strong> <strong><u>長堀橋站（長堀橋駅，ながほりばしえき）</u></strong>或 ESLEAD HOTEL Osaka Shinsaibashi<br>
+                    <strong>終點：</strong> 南海難波站（南海なんば駅，なんかいなんばえき）<br>
+                    • 步行路線：從<strong><u>長堀橋站</u></strong>步行至<strong><u>南海難波站</u></strong>（或從飯店直接步行至<strong><u>南海難波站</u></strong>）<br>
+                    • 步行時間：約 8–12 分鐘<br>
+                    <strong>地標指引：</strong> 按照「南海電鐵（なんかいでんてつ）」或「Nankai」指示牌前進<br>
+                    <strong>注意事項：</strong> 南海難波站與大阪地鐵難波站不同，需確認正確車站<br>
+                    <a href="https://www.google.com/maps/dir/長堀橋駅/南海なんば駅" target="_blank">Google Maps 步行路線連結</a>
+                </div>
+
+                <div class="route-card">
+                    <strong>移動 8：南海難波站 → KIX 關西機場（南海空港急行）</strong>
+                    <strong>起點：</strong> <strong><u>南海難波站（南海なんば駅，なんかいなんばえき）</u></strong><br>
+                    • 月台：<strong><u>空港急行列車月台（通常為 3–4 號月台，請依現場標示為準）</u></strong><br>
+                    • 方向：往關西機場方向（関西空港方面，かんさいくうこうほうめん / 空港急行，くうこうきゅうこう）<br>
+                    <strong>終點：</strong> <strong><u>關西國際機場站（関西国際空港駅，かんさいこくさいくうこうえき / KIX Terminal 1，2 樓）</u></strong><br>
+                    • 車程時間：約 45 分鐘（直達）<br>
+                    • 票價：成人 ￥920 (NT$ 185)（基本車資，不需特急券）<br>
+                    • 班次：約每 15–20 分鐘一班（05:45–23:40）<br>
+                    <strong>注意事項：</strong><br>
+                    • 空港急行為自由席，可直接使用 ICOCA 刷卡進站，無需提前購票<br>
+                    • 建議 19:30–20:00 出發，以確保有充足時間辦理登機手續（因車程較長，需提前出發）<br>
+                    • 抵達機場後，需預留 2.5–3 小時辦理登機、安檢等手續<br>
+                    • 航班起飛時間：23:10（GK51）<br>
+                    <strong>⚠️ 重要提醒：</strong> 空港急行車程比 Rapi:t 特急長約 11 分鐘，請務必提前出發，預留充足時間<br>
+                    <a href="https://www.google.com/maps/dir/南海なんば駅/関西国際空港駅" target="_blank">Google Maps 路線連結</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">時間軸</div>
+
+                <div class="time-line">
+                    <strong>09:30</strong> 退房或先寄放行李（飯店櫃檯）→ 出門<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動 1：ESLEAD HOTEL Osaka Shinsaibashi → 橘子街（步行或地鐵）</strong>
+                            <strong>起點：</strong> ESLEAD HOTEL Osaka Shinsaibashi（<strong><u>長堀橋站</u></strong> 6 號出口，步行約 2 分鐘）<br>
+                            <strong>終點：</strong> 橘子街（堀江橘通，ほりえたちばなどおり / Orange Street）<br>
+                            <strong>選項 A（步行）：</strong> 從飯店步行至橘子街（約 18–22 分鐘）<br>
+                            <strong>選項 B（地鐵）：</strong> <strong><u>長堀橋站（長堀橋駅，ながほりばしえき / 堺筋線）</u></strong>→ <strong><u>難波站（なんばえき / 換乘四つ橋線，よつばしせん）</u></strong>→ <strong><u>四ツ橋站（四ツ橋駅，よつばしえき）</u></strong>，再步行至橘子街<br>
+                            • 換乘指示：在難波站換乘四つ橋線（往住之江公園方向，すみのえこうえん）<br>
+                            • 車程時間：約 3–4 分鐘（含換乘）<br>
+                            • 票價：成人 ￥230 (NT$ 46)<br>
+                            • 從四ツ橋站步行至橘子街：約 6–8 分鐘<br>
+                            <a href="https://www.google.com/maps/dir/ESLEAD+HOTEL+Osaka+Shinsaibashi/堀江橘通" target="_blank">Google Maps 步行路線連結</a> | <a href="https://www.google.com/maps/dir/長堀橋駅/四ツ橋駅" target="_blank">地鐵路線連結</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>10:00–11:15</strong> 橘子街（堀江橘通/Tachibana-dori，生活雜貨/傢俱/選物）
+                </div>
+
+                <div class="time-line">
+                    <strong>11:25–12:30</strong> 美國村（Triangle Park一帶，潮流古著/選物）<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動 2：橘子街 → 美國村（步行）</strong>
+                            <strong>起點：</strong> 橘子街（堀江橘通，ほりえたちばなどおり）<br>
+                            <strong>終點：</strong> 美國村（アメリカ村，あめりかむら / Triangle Park，トライアングルパーク）<br>
+                            • 步行路線：從橘子街步行至美國村（Triangle Park 一帶）<br>
+                            • 步行時間：約 5–10 分鐘<br>
+                            <strong>地標指引：</strong> 使用 Google Maps 導航至「美國村」或「Triangle Park」<br>
+                            <a href="https://www.google.com/maps/dir/堀江橘通/アメリカ村" target="_blank">Google Maps 步行路線連結</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>12:30–13:30</strong> 午餐<br>
+                    • 幸せのパンケーキ：<span class="budget">￥1,200–￥1,600 (NT$ 242–322)</span><br>
+                    • 釜たけうどん：<span class="budget">￥700–￥1,100 (NT$ 141–221)</span>
+                </div>
+
+                <div class="time-line">
+                    <strong>13:45–15:15</strong> 心齋橋筋商店街 → 戎橋筋 → 道頓堀<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動 3：美國村 → 心齋橋筋商店街（步行）</strong>
+                            <strong>起點：</strong> 美國村（アメリカ村，あめりかむら）<br>
+                            <strong>終點：</strong> 心齋橋筋商店街（心齋橋筋商店街，しんさいばしすじしょうてんがい）<br>
+                            • 步行路線：從美國村步行至心齋橋筋商店街<br>
+                            • 步行時間：約 5–10 分鐘<br>
+                            <strong>地標指引：</strong> 朝著心齋橋（心齋橋，しんさいばし）方向前進<br>
+                            <a href="https://www.google.com/maps/dir/アメリカ村/心齋橋筋商店街" target="_blank">Google Maps 步行路線連結</a>
+                        </div>
+                        <div class="route-card">
+                            <strong>移動 4：心齋橋 → 道頓堀 → 難波Walk（步行）</strong>
+                            <strong>起點：</strong> 心齋橋筋商店街（心齋橋筋商店街，しんさいばしすじしょうてんがい）<br>
+                            <strong>終點：</strong> 難波Walk（なんばウォーク）<br>
+                            • 步行路線：從心齋橋筋商店街 → 戎橋筋（戎橋筋，えびすばしすじ）→ 道頓堀（道頓堀，どうとんぼり）→ 難波Walk<br>
+                            • 步行時間：約 10–15 分鐘<br>
+                            <strong>地標指引：</strong> 沿著商店街前進，會經過戎橋（戎橋，えびすばし / 連接心齋橋與道頓堀）<br>
+                            <a href="https://www.google.com/maps/dir/心齋橋/道頓堀/なんばウォーク" target="_blank">Google Maps 步行路線連結</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>15:30–16:30</strong> 難波Walk（地下街採買）
+                </div>
+
+                <div class="time-line">
+                    <strong>16:45–17:45</strong> PARCO（補貨/逛特定專櫃）<br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動 5：難波Walk → PARCO（步行或地鐵）</strong>
+                            <strong>起點：</strong> 難波Walk（なんばウォーク）<br>
+                            <strong>終點：</strong> 心齋橋 PARCO（心齋橋パルコ，しんさいばしぱるこ）<br>
+                            <strong>選項 A（步行）：</strong> 從難波Walk 步行至心齋橋 PARCO（約 5–10 分鐘）<br>
+                            <strong>選項 B（地鐵）：</strong> <strong><u>難波站（なんばえき / 御堂筋線，みどうすじせん）</u></strong>→ <strong><u>心齋橋站（心齋橋駅，しんさいばしえき）</u></strong><br>
+                            • 車程時間：約 2 分鐘（僅 1 站）<br>
+                            • 票價：成人 ￥190 (NT$ 38)<br>
+                            <a href="https://www.google.com/maps/dir/なんばウォーク/心齋橋パルコ" target="_blank">Google Maps 步行路線連結</a> | <a href="https://www.google.com/maps/dir/なんば駅/心齋橋駅" target="_blank">地鐵路線連結</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>18:00–18:45</strong> 晚餐（時間縮短，需提前結束）<br>
+                    • ぎゅうかつ もと村（Gyukatsu Motomura，ぎゅうかつ もとむら）：牛カツ定食（牛かつ定食，ぎゅうかつていしょく） <span class="budget">￥1,500–￥2,200 (NT$ 302–443)</span><br>
+                    • がんこ寿司（Ganko Sushi，がんこすし）：<span class="budget">￥1,500–￥2,500 (NT$ 302–503)</span><br>
+                    <strong>⚠️ 重要：</strong> 請在 18:45 前結束晚餐，準備前往機場
+                </div>
+
+                <div class="time-line">
+                    <strong>18:45–19:15</strong> 取回行李（若中午寄放）並前往<strong><u>南海難波站</u></strong><br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動 6：心齋橋/難波 → ESLEAD HOTEL Osaka Shinsaibashi（取行李）</strong>
+                            <strong>起點：</strong> 心齋橋（心齋橋，しんさいばし）或難波（なんば）<br>
+                            <strong>終點：</strong> ESLEAD HOTEL Osaka Shinsaibashi（<strong><u>長堀橋站</u></strong> 6 號出口，步行約 2 分鐘）<br>
+                            <strong>選項 A（地鐵）：</strong> <strong><u>難波站（なんばえき / 堺筋線，さかいすじせん）</u></strong>→ <strong><u>長堀橋站（長堀橋駅，ながほりばしえき）</u></strong><br>
+                            • 車程時間：約 2 分鐘（僅 1 站）<br>
+                            • 票價：成人 ￥190 (NT$ 38)<br>
+                            <strong>選項 B（步行）：</strong> 從難波/道頓堀步行回 ESLEAD HOTEL Osaka Shinsaibashi（約 10–15 分鐘）<br>
+                            <a href="https://www.google.com/maps/dir/なんば駅/長堀橋駅" target="_blank">Google Maps 路線連結</a>
+                        </div>
+                        <div class="route-card">
+                            <strong>移動 7：長堀橋站 → 南海難波站（步行轉乘）</strong>
+                            <strong>起點：</strong> <strong><u>長堀橋站（長堀橋駅，ながほりばしえき）</u></strong>或 ESLEAD HOTEL Osaka Shinsaibashi<br>
+                            <strong>終點：</strong> <strong><u>南海難波站（南海なんば駅，なんかいなんばえき）</u></strong><br>
+                            • 步行路線：從<strong><u>長堀橋站</u></strong>步行至<strong><u>南海難波站</u></strong>（或從飯店直接步行至<strong><u>南海難波站</u></strong>）<br>
+                            • 步行時間：約 8–12 分鐘<br>
+                            <strong>地標指引：</strong> 按照「南海電鐵（なんかいでんてつ）」或「Nankai」指示牌前進<br>
+                            <strong>注意事項：</strong> 南海難波站與大阪地鐵難波站不同，需確認正確車站<br>
+                            <a href="https://www.google.com/maps/dir/長堀橋駅/南海なんば駅" target="_blank">Google Maps 步行路線連結</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>19:30–20:00</strong> 「南海難波」搭空港急行前往KIX（自由席，車程約45分鐘）<br>
+                    票價：合計約 <span class="budget">￥920 (NT$ 185)/人</span>（基本車資，不需特急券）<br>
+                    <strong>⚠️ 重要：</strong> 因車程較長（約45分鐘），請務必提前出發，建議 19:30 前抵達<strong><u>南海難波站</u></strong><br>
+                    <div class="route-toggle" onclick="toggleRoute(this)">
+                        查看交通路線
+                    </div>
+                    <div class="route-details">
+                        <div class="route-card">
+                            <strong>移動 8：南海難波站 → KIX 關西機場（南海空港急行）</strong>
+                            <strong>起點：</strong> <strong><u>南海難波站（南海なんば駅，なんかいなんばえき）</u></strong><br>
+                            • 月台：<strong><u>空港急行列車月台（通常為 3–4 號月台，請依現場標示為準）</u></strong><br>
+                            • 方向：往關西機場方向（関西空港方面，かんさいくうこうほうめん / 空港急行，くうこうきゅうこう）<br>
+                            <strong>終點：</strong> <strong><u>關西國際機場站（関西国際空港駅，かんさいこくさいくうこうえき / KIX Terminal 1，2 樓）</u></strong><br>
+                            • 車程時間：約 45 分鐘（直達）<br>
+                            • 票價：成人 ￥920 (NT$ 185)（基本車資，不需特急券）<br>
+                            • 班次：約每 15–20 分鐘一班（05:45–23:40）<br>
+                            <strong>注意事項：</strong><br>
+                            • 空港急行為自由席，可直接使用 ICOCA 刷卡進站，無需提前購票<br>
+                            • 建議 19:30–20:00 出發，以確保有充足時間辦理登機手續（因車程較長，需提前出發）<br>
+                            • 抵達機場後，需預留 2.5–3 小時辦理登機、安檢等手續<br>
+                            • 航班起飛時間：23:10（GK51）<br>
+                            <strong>⚠️ 重要提醒：</strong> 空港急行車程比 Rapi:t 特急長約 11 分鐘，請務必提前出發，預留充足時間<br>
+                            <a href="https://www.google.com/maps/dir/南海なんば駅/関西国際空港駅" target="_blank">Google Maps 路線連結</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-line">
+                    <strong>23:10</strong> GK51 起飛（建議提早到場/完成報到與安檢）
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 分頁切換功能
+        const tabs = document.querySelectorAll('.tab');
+        const contents = document.querySelectorAll('.day-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetDay = tab.getAttribute('data-day');
+
+                // 移除所有活動狀態
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+
+                // 添加活動狀態
+                tab.classList.add('active');
+                document.getElementById(targetDay).classList.add('active');
+            });
+        });
+
+        // 平滑滾動到頂部
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // 展開/收合交通路線
+        function toggleRoute(element) {
+            const details = element.nextElementSibling;
+            if (details && details.classList.contains('route-details')) {
+                details.classList.toggle('show');
+                element.classList.toggle('collapsed');
+            }
+        }
+    </script>
+</body>
+</html>
+
